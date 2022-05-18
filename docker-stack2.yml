@@ -1,0 +1,87 @@
+version: "3.5"
+services:
+  ldap:
+    image: dcm4che/slapd-dcm4chee:2.6.0-26.0
+    deploy:
+      endpoint_mode: dnsrr
+      placement:
+        constraints:
+          - "node.hostname==node2"
+    ports:
+      - target: 389
+        published: 389
+        protocol: tcp
+        mode: host
+    environment:
+      LDAP_URLS: "ldap://ldap2/"
+      LDAP_REPLICATION_HOSTS: "ldap://ldap1/ ldap://ldap2/"
+      LDAP_EXTRA_HOST: "ldap2"
+      LDAP_EXTRA_HOST_IP_PREFIX: "172.18.0."
+      SKIP_INIT_CONFIG: "true"
+    extra_hosts:
+      - "ldap1:10.109.53.228"
+    volumes:
+      - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
+      - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
+  mariadb:
+    image: mariadb:10.7.3
+    deploy:
+      endpoint_mode: dnsrr
+      placement:
+        constraints:
+          - "node.hostname==node2"
+    ports:
+      - target: 3306
+        published: 3306
+        protocol: tcp
+        mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: keycloak
+    command:
+      - "--log-bin"
+      - "--log-basename=node2"
+      - "--server-id=2"
+      - "--replicate-do-db=keycloak"
+      - "--auto_increment_increment=2"
+      - "--auto_increment_offset=2"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /var/local/dcm4chee-arc/mysql:/var/lib/mysql
+  keycloak:
+    image: dcm4che/keycloak:18.0.0
+    deploy:
+      endpoint_mode: dnsrr
+      placement:
+        constraints:
+          - "node.hostname==node2"
+    ports:
+      - target: 8843
+        published: 8843
+        protocol: tcp
+        mode: host
+      - target: 7600
+        published: 7600
+        protocol: tcp
+        mode: host
+    environment:
+      KC_HTTPS_PORT: 8843
+      KC_HOSTNAME: node2
+      KC_DB: mariadb
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_URL_HOST: mariadb
+      KC_LOG: file
+      KC_LOG_LEVEL: INFO,org.infinispan:DEBUG,org.jgroups:DEBUG
+      KC_CACHE_CONFIG_FILE: cache-ispn-jdbc-ping.xml
+      JGROUPS_DISCOVERY_EXTERNAL_IP: 10.109.53.26
+      JGROUPS_BIND_IP_PREFIX: 172.18.0.
+      KEYCLOAK_WAIT_FOR: ldap:389 mariadb:3306
+    extra_hosts:
+      - "ldap:10.109.53.26"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /var/local/dcm4chee-arc/keycloak:/opt/keycloak/data

@@ -1,0 +1,82 @@
+version: "3.5"
+services:
+  ldap:
+    image: dcm4che/slapd-dcm4chee:2.6.0-26.0
+    deploy:
+      endpoint_mode: dnsrr
+      placement:
+        constraints:
+          - "node.hostname==gunter-nb"
+    ports:
+      - target: 389
+        published: 389
+        protocol: tcp
+        mode: host
+      - target: 636
+        published: 636
+        protocol: tcp
+        mode: host
+    environment:
+      LDAP_URLS: ldap:/// ldaps:///
+    volumes:
+      - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
+      - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
+      - /var/local/dcm4chee-arc/keycloak:/opt/keycloak/standalone
+  mariadb:
+    image: mariadb:10.7.3
+    deploy:
+      endpoint_mode: dnsrr
+      placement:
+        constraints:
+          - "node.hostname==gunter-nb"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: keycloak
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /var/local/dcm4chee-arc/mysql:/var/lib/mysql
+  keycloak-clustered-1:
+    image: dcm4che/keycloak:18.0.0
+    ports:
+      - "8843:8843"
+    environment:
+      LDAP_URL: ldaps://ldap:636
+      KC_HTTPS_PORT: 8843
+      KC_HOSTNAME: gunter-nb
+      KC_DB: mariadb
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_URL_HOST: mariadb
+      KC_LOG: file
+      KC_LOG_LEVEL: INFO,org.infinispan:DEBUG,org.jgroups:DEBUG
+      KC_CACHE_CONFIG_FILE: cache-ispn-jdbc-ping.xml
+      JGROUPS_DISCOVERY_EXTERNAL_IP: keycloak-clustered-1
+      KEYCLOAK_WAIT_FOR: ldap:389 mariadb:3306
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /var/local/dcm4chee-arc/keycloak:/opt/keycloak/data
+      - /var/local/dcm4chee-arc/keycloak-themes:/opt/keycloak/themes
+  keycloak-clustered-2:
+    image: dcm4che/keycloak:18.0.0
+    ports:
+      - "8943:8943"
+    environment:
+      LDAP_URL: ldaps://ldap:636
+      KC_HTTPS_PORT: 8943
+      KC_HOSTNAME: gunter-nb
+      KC_DB: mariadb
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_URL_HOST: mariadb
+      KC_LOG: file
+      KC_LOG_LEVEL: INFO,org.infinispan:DEBUG,org.jgroups:DEBUG
+      KC_CACHE_CONFIG_FILE: cache-ispn-jdbc-ping.xml
+      JGROUPS_DISCOVERY_EXTERNAL_IP: keycloak-clustered-2
+      KEYCLOAK_WAIT_FOR: ldap:389 mariadb:3306
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /var/local/dcm4chee-arc/keycloak2:/opt/keycloak/data
+      - /var/local/dcm4chee-arc/keycloak2-themes:/opt/keycloak/themes
