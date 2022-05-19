@@ -320,6 +320,40 @@ Set a format specific to file log entries (optional, default is `%d{yyyy-MM-dd H
 The log level of the root category or a comma-separated list of individual categories and their levels
 (optional, default is `info`).
 
+### [Logstash/GELF Logger](https://logging.paluch.biz/) configuration:
+
+#### `GELF_ENABLED`
+
+Whether emitting system logs to [Logstash](https://www.elastic.co/products/logstash) is enabled (optional, default is `false`).
+
+#### `LOGSTASH_HOST`
+
+Hostname/IP-Address of the Logstash host. (optional, default is `logstash`).
+
+#### `LOGSTASH_PORT`
+
+Port of the Logstash host. (optional, default is `12201`).
+
+#### `GELF_VERSION`
+
+GELF Version 1.0 or 1.1 (optional, default is `1.1`).
+
+#### `GELF_FACILITY`
+
+Name of the Facility (optional, default is `keycloak`).
+
+#### `GELF_LEVEL`
+
+Log-Level threshold (optional, default is `WARN`).
+
+#### `GELF_EXTRACT_STACK_TRACE`
+
+Indicates if the Stack-Trace shall be sent in the StackTrace field (optional, default is `true`).
+
+#### `GELF_FILTER_STACK_TRACE`
+
+Indicates if Stack-Trace filtering shall be performed (optional, default is `true`).
+
 ### [Cluster JDBC_PING configuration](https://github.com/ivangfr/keycloak-clustered):
 
 Requires use of external MySQL, MariaDB, Postgres or Microsoft SQL Server database to persist data.
