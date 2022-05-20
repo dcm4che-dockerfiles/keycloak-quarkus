@@ -102,6 +102,10 @@ Enables the HTTP listener (default value is `false`).
 
 HTTP port of Keycloak (optional, default is `8080`). Only effective with `KC_HTTP_ENABLED` is `true`.
 
+#### `KC_HTTP_RELATIVE_PATH`
+
+Set the path relative to '/' for serving resources. (optional, default is `/`).
+
 #### `KC_HTTPS_PORT`
 
 HTTPS port of Wildfly (optional, default is `8443`).

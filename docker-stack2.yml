@@ -68,6 +68,8 @@ services:
         protocol: tcp
         mode: host
     environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: changeit
       KC_HTTPS_PORT: 8843
       KC_HOSTNAME: node2
       KC_DB: mariadb
