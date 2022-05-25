@@ -89,9 +89,13 @@ User's password to use to authenticate to the Keycloak master realm.
 
 User's password to use to authenticate to the Keycloak master realm via file input (alternative to KEYCLOAK_PASSWORD).
 
-### Configuring the hostname
+### Configuring the hostname and context path
 #### `KC_HOSTNAME`
 Hostname for the Keycloak server.
+
+#### `KC_HTTP_RELATIVE_PATH`
+
+Set the path relative to '/' for serving resources. (optional, default is `/`).
 
 ### [Configuring TLS](https://www.keycloak.org/server/enabletls):
 #### `KC_HTTP_ENABLED`
@@ -101,10 +105,6 @@ Enables the HTTP listener (default value is `false`).
 #### `KC_HTTP_PORT`
 
 HTTP port of Keycloak (optional, default is `8080`). Only effective with `KC_HTTP_ENABLED` is `true`.
-
-#### `KC_HTTP_RELATIVE_PATH`
-
-Set the path relative to '/' for serving resources. (optional, default is `/`).
 
 #### `KC_HTTPS_PORT`
 
@@ -181,7 +181,7 @@ Password used to protect the integrity of the keystore specified by `EXTRA_CACER
 #### `KC_HTTPS_PROTOCOLS`
 
 Comma separated list of enabled TLS protocols (`SSLv2`, `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`, `TLSv1.3`)
-(optional, default is `TLSv1.5`). 
+(optional, default is `TLSv1.3`). 
 
 #### `KC_HTTPS_CIPHER_SUITES`
 
@@ -273,11 +273,11 @@ Sets the port of the default JDBC URL of the chosen vendor.
 Sets the properties of the default JDBC URL of the chosen vendor.
 
 #### `KC_DB_USERNAME`
-             
+
 User to authenticate to the external database (optional, default is `keycloak`).
 
 #### `KC_DB_USERNAME_FILE`
-                  
+
 User to authenticate to the external database via file input (alternative to `KC_DB_USERNAME`).
 
 #### `KC_DB_PASSWORD`
@@ -285,7 +285,7 @@ User to authenticate to the external database via file input (alternative to `KC
 User's password to use to authenticate to the external database (optional, default is `keycloak`).
 
 #### `KC_DB_PASSWORD_FILE`
-                      
+
 User's password to use to authenticate to the external database via file input (alternative to `DB_PASSWORD`).
 
 #### `KC_DB_POOL_INITIAL_SIZE`
