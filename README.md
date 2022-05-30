@@ -158,7 +158,7 @@ Type (`JKS` or `PKCS12`) of the keystore specified by `TRUSTSTORE` (optional, de
 #### `EXTRA_CACERTS`
 
 Path to keystore file with CA certificates imported to default Java truststore (optional, default is
-`/opt/keycloak/standalone/configuration/keystore/cacerts.p12`, with sample CA certificate:
+`/opt/keycloak/conf/keystore/cacerts.p12`, with sample CA certificate:
 ```
 Subject    - CN=IHE Europe CA,O=IHE Europe,C=FR
 Issuer     - CN=IHE Europe CA,O=IHE Europe,C=FR
