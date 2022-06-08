@@ -37,6 +37,32 @@ Defining the SSL/HTTPS requirements for interacting with the realm:
 Indicates if Keycloak should validate the password with the realm password policy before updating it
 (default value is `false`).
 
+##### `UI_CLIENT_ID`
+
+Keycloak client ID for securing the UI of the archive (optional, default is `dcm4chee-arc-ui`).
+
+#### `WILDFLY_CONSOLE`
+
+Keycloak client ID for [securing the Wildfly Administration Console](https://docs.jboss.org/author/display/WFLY/Protecting+Wildfly+Adminstration+Console+With+Keycloak)
+of the archive (optional, default is `wildfly-console`).
+
+### `ARCHIVE_HOST`
+
+Hostname of the archive device referred by OIDC Keycloak clients for securing the UI
+and the Wildfly Administration Console of the archive. Default value is `dcm4chee-arc`.
+
+### `ARCHIVE_HTTP_PORT`
+
+HTTP port of the UI of the archive (optional, default is `8080`).
+
+### `ARCHIVE_HTTPS_PORT`
+
+HTTPS port of the UI of the archive (optional, default is `8443`).
+
+#### `ARCHIVE_MANAGEMENT_HTTPS_PORT`
+
+HTTPS port of Wildfly Administration Console of the archive (optional, default is `9993`).
+
 ### Configuring LDAP connection for User Federation of Realm and fetching Audit Logger configuration:
 #### `LDAP_URL`
 

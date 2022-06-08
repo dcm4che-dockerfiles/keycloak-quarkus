@@ -44,6 +44,7 @@ services:
       - "8843:8843"
       - "8787:8787"
     environment:
+      ARCHIVE_HOST: gunter-nb
       LDAP_URL: ldaps://ldap:636
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: changeit

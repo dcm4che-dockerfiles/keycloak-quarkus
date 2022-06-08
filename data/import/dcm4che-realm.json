@@ -298,9 +298,11 @@
           "attributes": {}
         }
       ],
+      "${WILDFLY_CONSOLE}": [],
       "security-admin-console": [],
       "admin-cli": [],
       "account-console": [],
+      "${UI_CLIENT_ID}": [],
       "broker": [
         {
           "id": "d1432360-f4bc-418f-ad37-ac00290f568d",
@@ -627,6 +629,77 @@
       ]
     },
     {
+      "id": "c5d8b6a9-6baa-43f8-bab3-d4e55af66b62",
+      "clientId": "${UI_CLIENT_ID}",
+      "rootUrl": "https://${ARCHIVE_HOST}:${ARCHIVE_HTTPS_PORT}/dcm4chee-arc/ui2",
+      "adminUrl": "https://${ARCHIVE_HOST}:${ARCHIVE_HTTPS_PORT}/dcm4chee-arc/ui2",
+      "surrogateAuthRequired": false,
+      "enabled": true,
+      "alwaysDisplayInConsole": false,
+      "clientAuthenticatorType": "client-secret",
+      "redirectUris": [
+        "https://${ARCHIVE_HOST}:${ARCHIVE_HTTPS_PORT}/dcm4chee-arc/ui2/*",
+        "http://${ARCHIVE_HOST}:${ARCHIVE_HTTP_PORT}/dcm4chee-arc/ui2/*"
+      ],
+      "webOrigins": [
+        "http://${ARCHIVE_HOST}:${ARCHIVE_HTTP_PORT}",
+        "https://${ARCHIVE_HOST}:${ARCHIVE_HTTPS_PORT}"
+      ],
+      "notBefore": 0,
+      "bearerOnly": false,
+      "consentRequired": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "publicClient": true,
+      "frontchannelLogout": false,
+      "protocol": "openid-connect",
+      "attributes": {
+        "saml.force.post.binding": "false",
+        "saml.multivalued.roles": "false",
+        "frontchannel.logout.session.required": "false",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "backchannel.logout.revoke.offline.tokens": "false",
+        "saml.server.signature.keyinfo.ext": "false",
+        "use.refresh.tokens": "true",
+        "oidc.ciba.grant.enabled": "false",
+        "backchannel.logout.session.required": "true",
+        "client_credentials.use_refresh_token": "false",
+        "require.pushed.authorization.requests": "false",
+        "saml.client.signature": "false",
+        "saml.allow.ecp.flow": "false",
+        "id.token.as.detached.signature": "false",
+        "saml.assertion.signature": "false",
+        "saml.encrypt": "false",
+        "saml.server.signature": "false",
+        "exclude.session.state.from.auth.response": "false",
+        "saml.artifact.binding": "false",
+        "saml_force_name_id_format": "false",
+        "acr.loa.map": "{}",
+        "tls.client.certificate.bound.access.tokens": "false",
+        "saml.authnstatement": "false",
+        "display.on.consent.screen": "false",
+        "token.response.type.bearer.lower-case": "false",
+        "saml.onetimeuse.condition": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
+      "defaultClientScopes": [
+        "web-origins",
+        "roles",
+        "profile",
+        "email"
+      ],
+      "optionalClientScopes": [
+        "address",
+        "phone",
+        "offline_access",
+        "microprofile-jwt"
+      ]
+    },
+    {
       "id": "5d3eae6b-eed6-40a4-a365-1b540dbd2ae3",
       "clientId": "realm-management",
       "name": "${client_realm-management}",
@@ -712,6 +785,51 @@
           }
         }
       ],
+      "defaultClientScopes": [
+        "web-origins",
+        "roles",
+        "profile",
+        "email"
+      ],
+      "optionalClientScopes": [
+        "address",
+        "phone",
+        "offline_access",
+        "microprofile-jwt"
+      ]
+    },
+    {
+      "id": "4cc90ea9-cef0-4fac-b32d-2d201ffa54c8",
+      "clientId": "${WILDFLY_CONSOLE}",
+      "rootUrl": "https://${ARCHIVE_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}",
+      "adminUrl": "https://${ARCHIVE_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}",
+      "surrogateAuthRequired": false,
+      "enabled": true,
+      "alwaysDisplayInConsole": false,
+      "clientAuthenticatorType": "client-secret",
+      "redirectUris": [
+        "https://${ARCHIVE_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}/*"
+      ],
+      "webOrigins": [
+        "https://${ARCHIVE_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}"
+      ],
+      "notBefore": 0,
+      "bearerOnly": false,
+      "consentRequired": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "publicClient": true,
+      "frontchannelLogout": false,
+      "protocol": "openid-connect",
+      "attributes": {
+        "backchannel.logout.session.required": "true",
+        "backchannel.logout.revoke.offline.tokens": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
       "defaultClientScopes": [
         "web-origins",
         "roles",

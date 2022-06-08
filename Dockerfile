@@ -50,6 +50,12 @@ COPY --chown=keycloak:keycloak data /docker-entrypoint.d/data/
 COPY --chown=keycloak:keycloak themes /docker-entrypoint.d/themes/
 
 ENV REALM_NAME=dcm4che \
+    UI_CLIENT_ID=dcm4chee-arc-ui \
+    WILDFLY_CONSOLE=wildfly-console \
+    ARCHIVE_HOST=dcm4chee-arc \
+    ARCHIVE_HTTP_PORT=8080 \
+    ARCHIVE_HTTPS_PORT=8443 \
+    ARCHIVE_MANAGEMENT_HTTPS_PORT=9993 \
     LDAP_URL=ldap://ldap:389 \
     LDAP_BASE_DN=dc=dcm4che,dc=org \
     SSL_REQUIRED=external \
