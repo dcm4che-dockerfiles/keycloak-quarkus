@@ -100,8 +100,10 @@ Optional, default is `root`.
 #### `KEYCLOAK_ADMIN`
 
 By default there is no admin user created so you won't be able to login to the admin console of the Keycloak master
-realm. To create an admin account you may use environment variables `KEYCLOAK_USER` and `KEYCLOAK_PASSWORD` to pass in
-an initial username and password.
+realm at `https://${KC_HOSTNAME}:${KC_HTTPS_PORT}[/${KC_HTTP_RELATIVE_PATH}]`. To create an admin account you may use
+environment variables `KEYCLOAK_ADMIN` and `KEYCLOAK_ADMIN_PASSWORD` to pass in an initial username and password.
+Once the first user with administrative rights exists, you may use the UI to change the initial password,
+create additional admin users and/or delete that initial admin user.
 
 #### `KEYCLOAK_ADMIN_FILE`
 
