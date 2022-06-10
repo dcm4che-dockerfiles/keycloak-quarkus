@@ -30,6 +30,8 @@ file_env 'KEYCLOAK_ADMIN_PASSWORD'
 file_env 'KC_HTTPS_KEY_STORE_PASSWORD' 'secret'
 file_env 'KC_HTTPS_TRUST_STORE_PASSWORD' 'changeit'
 file_env 'EXTRA_CACERTS_PASSWORD' 'secret'
+file_env 'KIBANA_CLIENT_SECRET' 'changeit'
+file_env 'ELASTIC_CLIENT_SECRET' 'changeit'
 
 if [ -z "$JGROUPS_BIND_IP" ]; then
   if [ -n "$JGROUPS_BIND_IP_PREFIX" ]; then

@@ -71,6 +71,7 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: changeit
       KC_HTTPS_PORT: 8843
+      KC_HTTP_RELATIVE_PATH: /auth
       KC_HOSTNAME: node2
       KC_DB: mariadb
       KC_DB_URL_DATABASE: keycloak

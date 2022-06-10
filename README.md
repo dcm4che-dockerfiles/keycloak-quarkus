@@ -63,6 +63,38 @@ HTTPS port of the UI of the archive (optional, default is `8443`).
 
 HTTPS port of Wildfly Administration Console of the archive (optional, default is `9993`).
 
+##### `KIBANA_CLIENT_ID`
+
+Keycloak client ID for securing the UI of Kibana (optional, default is `kibana`).
+
+##### `KIBANA_CLIENT_SECRET`
+
+Secret for Keycloak client for securing the UI of Kibana (optional, default is `changeit`).
+
+#### `KIBANA_CLIENT_SECRET_FILE`
+
+File containing secret for Keycloak client for securing the UI of Kibana (alternative to `KIBANA_CLIENT_SECRET`).
+
+##### `KIBANA_ROOT_URL`
+
+Root URL of Keycloak client for securing the UI of Kibana (optional, default is `https://kibana:8643`).
+
+##### `ELASTIC_CLIENT_ID`
+
+Keycloak client ID for securing access to Elasticsearch (optional, default is `elastic`).
+
+##### `ELASTIC_CLIENT_SECRET`
+
+Secret for Keycloak client for securing access to Elasticsearch (optional, default is `changeit`).
+
+#### `ELASTIC_CLIENT_SECRET_FILE`
+
+File containing secret for Keycloak client for securing access to Elasticsearch (alternative to `ELASTIC_CLIENT_SECRET`).
+
+##### `ELASTIC_ROOT_URL`
+
+Root URL of Keycloak client for securing access to Elasticsearch (optional, default is `https://elastic:8943`).
+
 ### Configuring LDAP connection for User Federation of Realm and fetching Audit Logger configuration:
 #### `LDAP_URL`
 
@@ -124,6 +156,7 @@ Hostname for the Keycloak server.
 #### `KC_HTTP_RELATIVE_PATH`
 
 Set the path relative to '/' for serving resources. (optional, default is `/`).
+**Attention:** Current archive version (5.26.1) requires `KC_HTTP_RELATIVE_PATH=/auth`.
 
 ### [Configuring TLS](https://www.keycloak.org/server/enabletls):
 #### `KC_HTTP_ENABLED`
