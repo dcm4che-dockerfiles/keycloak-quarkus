@@ -19,11 +19,11 @@ _**Note**_ : If default values of any environment variables were overridden in s
 then ensure that the same values are also used for overriding the defaults during startup of keycloak container. 
 
 ### Environment variables referred by Realm Configuration imported on first Startup:
-##### `REALM_NAME`
+#### `REALM_NAME`
 
 Realm name (default is `dcm4che`).
 
-##### `SSL_REQUIRED`
+#### `SSL_REQUIRED`
 
 Defining the SSL/HTTPS requirements for interacting with the realm:
 - `none` - HTTPS is not required for any client IP address
@@ -32,12 +32,12 @@ Defining the SSL/HTTPS requirements for interacting with the realm:
 
 (default is `external`).
 
-##### `VALIDATE_PASSWORD_POLICY`
+#### `VALIDATE_PASSWORD_POLICY`
 
 Indicates if Keycloak should validate the password with the realm password policy before updating it
 (default value is `false`).
 
-##### `UI_CLIENT_ID`
+#### `UI_CLIENT_ID`
 
 Keycloak client ID for securing the UI of the archive (optional, default is `dcm4chee-arc-ui`).
 
@@ -63,11 +63,11 @@ HTTPS port of the UI of the archive (optional, default is `8443`).
 
 HTTPS port of Wildfly Administration Console of the archive (optional, default is `9993`).
 
-##### `KIBANA_CLIENT_ID`
+#### `KIBANA_CLIENT_ID`
 
 Keycloak client ID for securing the UI of Kibana (optional, default is `kibana`).
 
-##### `KIBANA_CLIENT_SECRET`
+#### `KIBANA_CLIENT_SECRET`
 
 Secret for Keycloak client for securing the UI of Kibana (optional, default is `changeit`).
 
@@ -75,15 +75,15 @@ Secret for Keycloak client for securing the UI of Kibana (optional, default is `
 
 File containing secret for Keycloak client for securing the UI of Kibana (alternative to `KIBANA_CLIENT_SECRET`).
 
-##### `KIBANA_ROOT_URL`
+#### `KIBANA_ROOT_URL`
 
 Root URL of Keycloak client for securing the UI of Kibana (optional, default is `https://kibana:8643`).
 
-##### `ELASTIC_CLIENT_ID`
+#### `ELASTIC_CLIENT_ID`
 
 Keycloak client ID for securing access to Elasticsearch (optional, default is `elastic`).
 
-##### `ELASTIC_CLIENT_SECRET`
+#### `ELASTIC_CLIENT_SECRET`
 
 Secret for Keycloak client for securing access to Elasticsearch (optional, default is `changeit`).
 
@@ -91,7 +91,7 @@ Secret for Keycloak client for securing access to Elasticsearch (optional, defau
 
 File containing secret for Keycloak client for securing access to Elasticsearch (alternative to `ELASTIC_CLIENT_SECRET`).
 
-##### `ELASTIC_ROOT_URL`
+#### `ELASTIC_ROOT_URL`
 
 Root URL of Keycloak client for securing access to Elasticsearch (optional, default is `https://elastic:8943`).
 
