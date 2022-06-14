@@ -21,7 +21,6 @@ services:
     volumes:
       - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
       - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
-      - /var/local/dcm4chee-arc/keycloak:/opt/keycloak/standalone
   mariadb:
     image: mariadb:10.7.3
     deploy:

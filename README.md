@@ -156,7 +156,12 @@ Hostname for the Keycloak server.
 #### `KC_HTTP_RELATIVE_PATH`
 
 Set the path relative to '/' for serving resources. (optional, default is `/`).
-**Attention:** Current archive version (5.26.1) requires `KC_HTTP_RELATIVE_PATH=/auth`.
+
+### Configuring [OpenID Connect Logout](https://www.keycloak.org/docs/latest/upgrading/index.html#openid-connect-logout)
+#### `KC_SPI_LOGIN_PROTOCOL_OPENID_CONNECT_LEGACY_LOGOUT_REDIRECT_URI`
+
+Enable backwards compatibility option `legacy-logout-redirect-uri` of oidc login protocol in the server configuration (default value is `false`).
+Required for logout by UI of current archive version (5.26.1). 
 
 ### [Configuring TLS](https://www.keycloak.org/server/enabletls):
 #### `KC_HTTP_ENABLED`
