@@ -274,7 +274,7 @@ Accepted values are:
 
 Default value is `ANY`.
 
-#### `KC_SPI_CONNECTIONS_HTTP_CLIENT_DEFAULT_DISABLE_TRUST_MANAGER
+#### `KC_SPI_CONNECTIONS_HTTP_CLIENT_DEFAULT_DISABLE_TRUST_MANAGER`
 If `true`, certificate checking will include the [default set of root CA certificates in the JDK](https://openjdk.java.net/jeps/319)
 additionally to CA certificates in `TRUSTSTORE` (optional, default is `false`).
 
@@ -388,7 +388,7 @@ Set a format specific to file log entries (optional, default is `%d{yyyy-MM-dd H
 
 #### `KC_LOG_LEVEL`
 The log level of the root category or a comma-separated list of individual categories and their levels
-(optional, default is `info`).
+(optional, default is `INFO`). E.g.: `INFO,org.infinispan:DEBUG,org.jgroups:DEBUG`.
 
 ### [Logstash/GELF Logger](https://logging.paluch.biz/) configuration:
 
