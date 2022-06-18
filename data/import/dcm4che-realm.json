@@ -700,7 +700,7 @@
           "protocolMapper": "oidc-audience-mapper",
           "consentRequired": false,
           "config": {
-            "included.client.audience": "${UI_CLIENT_ID}",
+            "included.client.audience": "${ELASTIC_CLIENT_ID}",
             "id.token.claim": "false",
             "access.token.claim": "true"
           }
@@ -2857,7 +2857,7 @@
     "parRequestUriLifespan": "60",
     "cibaInterval": "5"
   },
-  "keycloakVersion": "18.0.0",
+  "keycloakVersion": "18.0.1",
   "userManagedAccessAllowed": false,
   "clientProfiles": {
     "profiles": []
