@@ -43,7 +43,7 @@ Keycloak client ID for securing the UI of the archive (optional, default is `dcm
 
 #### `RS_CLIENT_ID`
 
-Keycloak client ID for securing RESTful services of the archive (optional, default is `dcm4chee-arc-rsi`).
+Keycloak client ID for securing RESTful services of the archive (optional, default is `dcm4chee-arc-rs`).
 
 #### `RS_CLIENT_SECRET`
 
