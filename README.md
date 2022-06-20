@@ -41,6 +41,22 @@ Indicates if Keycloak should validate the password with the realm password polic
 
 Keycloak client ID for securing the UI of the archive (optional, default is `dcm4chee-arc-ui`).
 
+#### `RS_CLIENT_ID`
+
+Keycloak client ID for securing RESTful services of the archive (optional, default is `dcm4chee-arc-rsi`).
+
+#### `RS_CLIENT_SECRET`
+
+Secret for Keycloak client for securing RESTful services of the archive (optional, default is `changeit`).
+
+#### `RS_CLIENT_SECRET_FILE`
+
+File containing secret for Keycloak client for securing RESTful services of the archive (alternative to `RS_CLIENT_SECRET`).
+
+### `AUTH_USER_ROLE`
+
+User role associated to Service Account of Keycloak client for securing RESTful services of the archive (optional, default is `user`).
+
 #### `WILDFLY_CONSOLE`
 
 Keycloak client ID for [securing the Wildfly Administration Console](https://docs.jboss.org/author/display/WFLY/Protecting+Wildfly+Adminstration+Console+With+Keycloak)
@@ -48,7 +64,7 @@ of the archive (optional, default is `wildfly-console`).
 
 #### `ARCHIVE_HOST`
 
-Hostname of the archive device referred by OIDC Keycloak clients for securing the UI
+Hostname of the archive device referred by OIDC Keycloak clients for securing the UI, RESTful services
 and the Wildfly Administration Console of the archive. Default value is `dcm4chee-arc`.
 
 #### `ARCHIVE_HTTP_PORT`
