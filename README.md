@@ -91,9 +91,9 @@ Secret for Keycloak client for securing the UI of Kibana (optional, default is `
 
 File containing secret for Keycloak client for securing the UI of Kibana (alternative to `KIBANA_CLIENT_SECRET`).
 
-#### `KIBANA_ROOT_URL`
+#### `KIBANA_REDIRECT_URL`
 
-Root URL of Keycloak client for securing the UI of Kibana (optional, default is `https://kibana:8643`).
+Redirect URL of Keycloak client for securing the UI of Kibana (optional, default is `https://kibana:8643/*`).
 
 #### `ELASTIC_CLIENT_ID`
 
@@ -106,10 +106,6 @@ Secret for Keycloak client for securing access to Elasticsearch (optional, defau
 #### `ELASTIC_CLIENT_SECRET_FILE`
 
 File containing secret for Keycloak client for securing access to Elasticsearch (alternative to `ELASTIC_CLIENT_SECRET`).
-
-#### `ELASTIC_ROOT_URL`
-
-Root URL of Keycloak client for securing access to Elasticsearch (optional, default is `https://elastic:8943`).
 
 ### Configuring LDAP connection for User Federation of Realm and fetching Audit Logger configuration:
 #### `LDAP_URL`
