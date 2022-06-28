@@ -398,6 +398,12 @@ Set the log file path and filename (optional, default is `/opt/keycloak/data/log
 #### `KC_LOG_FILE_FORMAT`
 Set a format specific to file log entries (optional, default is `%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n`).
 
+#### `KC_LOG_FILE_ROTATION_MAX_FILE_SIZE`
+The maximum file size of the log file after which a rotation is executed (optional, default is `10M`).
+
+#### `KC_LOG_FILE_ROTATION_MAX_BACKUP_INDEX`
+The maximum number of backups to keep (optional, default is `5`).
+
 #### `KC_LOG_LEVEL`
 The log level of the root category or a comma-separated list of individual categories and their levels
 (optional, default is `INFO`). E.g.: `INFO,org.infinispan:DEBUG,org.jgroups:DEBUG`.
