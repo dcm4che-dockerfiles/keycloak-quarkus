@@ -2982,7 +2982,7 @@
     "parRequestUriLifespan": "60",
     "cibaInterval": "5"
   },
-  "keycloakVersion": "18.0.1",
+  "keycloakVersion": "18.0.2",
   "userManagedAccessAllowed": false,
   "clientProfiles": {
     "profiles": []

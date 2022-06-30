@@ -21,7 +21,7 @@ RUN arch="$(dpkg --print-architecture)" \
     && gosu --version \
     && gosu nobody true
 
-ENV KEYCLOAK_VERSION=18.0.1 \
+ENV KEYCLOAK_VERSION=18.0.2 \
     QUARKUS_VERSION=2.7.5.Final \
     LOGSTASH_GELF_VERSION=1.15.0 \
     DCM4CHE_VERSION=5.26.1
