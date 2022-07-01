@@ -204,12 +204,12 @@ provided by the docker image only for testing purpose).
 
 #### `KC_HTTPS_KEY_STORE_PASSWORD`
 
-Password used to protect the integrity of the keystore specified by `KEYSTORE` (default is `secret`).
+Password used to protect the integrity of the keystore specified by `KC_HTTPS_KEY_STORE_FILE` (default is `secret`).
 
 #### `KC_HTTPS_KEY_STORE_PASSWORD_FILE`
 
-Password used to protect the integrity of the keystore specified by `KEYSTORE` via file input
-(alternative to `KEYSTORE_PASSWORD`).
+Password used to protect the integrity of the keystore specified by `KC_HTTPS_KEY_STORE_FILE` via file input
+(alternative to `KC_HTTPS_KEY_STORE_PASSWORD`).
 
 #### `KC_HTTPS_KEY_STORE_TYPE`
 
@@ -222,12 +222,12 @@ Path to keystore file with trusted certificates for TLS (optional, default is th
 
 #### `KC_HTTPS_TRUST_STORE_PASSWORD`
 
-Password used to protect the integrity of the keystore specified by `TRUSTSTORE` (optional, default is `changeit`).
+Password used to protect the integrity of the keystore specified by `KC_HTTPS_TRUST_STORE_FILE` (optional, default is `changeit`).
 
 #### `KC_HTTPS_TRUST_STORE_PASSWORD_FILE`
 
-Password used to protect the integrity of the keystore specified by `TRUSTSTORE` via file input
-(alternative to `TRUSTSTORE_PASSWORD`).
+Password used to protect the integrity of the keystore specified by `KC_HTTPS_TRUST_STORE_FILE` via file input
+(alternative to `KC_HTTPS_TRUST_STORE_PASSWORD`).
 
 #### `KC_HTTPS_TRUST_STORE_TYPE`
 
@@ -276,6 +276,10 @@ Accepted values are:
 s. [Using a reverse proxy](https://www.keycloak.org/server/reverseproxy)
 
 ### [Configuring outgoing HTTP requests](https://www.keycloak.org/server/outgoinghttp):
+#### `KC_SPI_CONNECTIONS_HTTP_CLIENT_DEFAULT_DISABLE_TRUST_MANAGER`
+If `true`, certificate checking will include the [default set of root CA certificates in the JDK](https://openjdk.java.net/jeps/319)
+additionally to CA certificates in `TRUSTSTORE` (optional, default is `false`).
+
 #### `KC_SPI_TRUSTSTORE_FILE_HOSTNAME_VERIFICATION_POLICY`
 
 Specifies if Keycloak shall verify the hostname of the server’s certificate on outgoing HTTPS requests.
@@ -286,9 +290,21 @@ Accepted values are:
 
 Default value is `ANY`.
 
-#### `KC_SPI_CONNECTIONS_HTTP_CLIENT_DEFAULT_DISABLE_TRUST_MANAGER`
-If `true`, certificate checking will include the [default set of root CA certificates in the JDK](https://openjdk.java.net/jeps/319)
-additionally to CA certificates in `TRUSTSTORE` (optional, default is `false`).
+#### `KC_SPI_TRUSTSTORE_FILE_FILE`
+
+Path to keystore file with trusted certificates for verifying server certificates on outgoing HTTPs requests
+(optional, default is the default Java truststore `/usr/local/openjdk-11/lib/security/cacerts`).
+s.o. [EXTRA_CACERTS](#extra_cacerts).
+
+#### `KC_HTTPS_TRUST_STORE_PASSWORD`
+
+Password used to protect the integrity of the keystore specified by `KC_SPI_TRUSTSTORE_FILE_FILE` (optional, default is `changeit`).
+
+#### `KC_HTTPS_TRUST_STORE_PASSWORD_FILE`
+
+Password used to protect the integrity of the keystore specified by `KC_SPI_TRUSTSTORE_FILE_FILE` via file input
+(alternative to `KC_HTTPS_TRUST_STORE_PASSWORD`).
+
 
 ### JVM related Environment variables: 
 #### `JAVA_OPTS`

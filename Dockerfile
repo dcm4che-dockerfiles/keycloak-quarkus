@@ -69,6 +69,8 @@ ENV REALM_NAME=dcm4che \
     KC_HTTPS_KEY_STORE_TYPE=PKCS12 \
     KC_HTTPS_TRUST_STORE_FILE=/opt/java/openjdk/lib/security/cacerts \
     KC_HTTPS_TRUST_STORE_TYPE=JKS \
+    KC_SPI_TRUSTSTORE_FILE_FILE=/opt/java/openjdk/lib/security/cacerts \
+    KC_SPI_TRUSTSTORE_FILE_HOSTNAME_VERIFICATION_POLICY=ANY \
     EXTRA_CACERTS=/opt/keycloak/conf/keystores/cacerts.p12 \
     DEBUG_PORT=*:8787
 
