@@ -161,13 +161,31 @@ User's password to use to authenticate to the Keycloak master realm.
 
 User's password to use to authenticate to the Keycloak master realm via file input (alternative to KEYCLOAK_PASSWORD).
 
-### Configuring the hostname and context path
+### Configuring the external hostname and context path
 #### `KC_HOSTNAME`
-Hostname for the Keycloak server.
+
+Hostname used to externally access Keycloak. If there is a reverse proxy in front of Keycloak, you have to specify
+the hostname of the reverse proxy.
+
+#### `KC_HOSTNAME_PORT`
+
+The port used by the proxy when exposing the hostname. Required if there is a reverse proxy in front of Keycloak which
+port differs from the HTTPS port of Keycloak specified by `KC_HTTPS_PORT`.
+
+#### `KC_HOSTNAME_STRICT_BACKCHANNEL`
+
+When all applications connected to Keycloak communicate through the public URL, set `KC_HOSTNAME_STRICT_BACKCHANNEL`
+to `true`. Otherwise, leave this parameter as `false` to allow internal applications to communicate with Keycloak
+through an internal URL.
+
+#### `KC_HOSTNAME_PATH`
+
+The context-path used by the proxy. Required if there is a reverse proxy in front of Keycloak which uses a different
+context-path for Keycloak than specified by `KC_HTTP_RELATIVE_PATH`.
 
 #### `KC_HTTP_RELATIVE_PATH`
 
-Set the path relative to '/' for serving resources. (optional, default is `/`).
+Set the context-path relative to '/' for serving resources. (optional, default is `/`).
 
 ### Configuring [OpenID Connect Logout](https://www.keycloak.org/docs/latest/upgrading/index.html#openid-connect-logout)
 #### `KC_SPI_LOGIN_PROTOCOL_OPENID_CONNECT_LEGACY_LOGOUT_REDIRECT_URI`
@@ -186,7 +204,7 @@ HTTP port of Keycloak (optional, default is `8080`). Only effective with `KC_HTT
 
 #### `KC_HTTPS_PORT`
 
-HTTPS port of Wildfly (optional, default is `8443`).
+HTTPS port of Keycloak (optional, default is `8443`).
 
 #### `KC_HTTPS_KEY_STORE_FILE`
 
