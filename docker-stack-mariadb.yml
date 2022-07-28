@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   ldap:
-    image: dcm4che/slapd-dcm4chee:2.6.2-26.1
+    image: dcm4che/slapd-dcm4chee:2.6.2-27.0
     deploy:
       endpoint_mode: dnsrr
       placement:
@@ -38,7 +38,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /var/local/dcm4chee-arc/mysql:/var/lib/mysql
   keycloak:
-    image: dcm4che/keycloak:18.0.2
+    image: dcm4che/keycloak:19.0.0
     ports:
       - "8843:8843"
       - "8787:8787"

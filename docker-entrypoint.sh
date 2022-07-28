@@ -21,10 +21,6 @@ if [ "$1" = 'kc.sh' ]; then
                 -destkeystore $JAVA_HOME/lib/security/cacerts -deststorepass changeit
         fi
     fi
-    if [ ! -f /docker-entrypoint.d/build.done ]; then
-        touch /docker-entrypoint.d/build.done
-        set -- "$@" --auto-build
-    fi
 
     for c in $KEYCLOAK_WAIT_FOR; do
         echo "Waiting for $c ..."

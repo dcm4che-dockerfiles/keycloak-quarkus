@@ -21,10 +21,8 @@ RUN arch="$(dpkg --print-architecture)" \
     && gosu --version \
     && gosu nobody true
 
-ENV KEYCLOAK_VERSION=18.0.2 \
-    QUARKUS_VERSION=2.7.5.Final \
-    LOGSTASH_GELF_VERSION=1.15.0 \
-    DCM4CHE_VERSION=5.26.1
+ENV KEYCLOAK_VERSION=19.0.0 \
+    DCM4CHE_VERSION=5.27.0
 
 RUN cd $HOME \
     && curl -L https://github.com/keycloak/keycloak/releases/download/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar xz \
@@ -38,9 +36,6 @@ RUN cd $HOME \
     && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-core/$DCM4CHE_VERSION/dcm4che-core-$DCM4CHE_VERSION.jar \
     && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-net/$DCM4CHE_VERSION/dcm4che-net-$DCM4CHE_VERSION.jar \
     && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-net-audit/$DCM4CHE_VERSION/dcm4che-net-audit-$DCM4CHE_VERSION.jar \
-    && curl -O https://repo1.maven.org/maven2/io/quarkus/quarkus-logging-gelf/$QUARKUS_VERSION/quarkus-logging-gelf-$QUARKUS_VERSION.jar \
-    && curl -O https://repo1.maven.org/maven2/io/quarkus/quarkus-logging-gelf-deployment/$QUARKUS_VERSION/quarkus-logging-gelf-deployment-$QUARKUS_VERSION.jar \
-    && curl -O https://repo1.maven.org/maven2/biz/paluch/logging/logstash-gelf/$LOGSTASH_GELF_VERSION/logstash-gelf-$LOGSTASH_GELF_VERSION.jar \
     && chown -R keycloak:keycloak /opt/keycloak \
     && mkdir /docker-entrypoint.d
 
@@ -72,6 +67,7 @@ ENV REALM_NAME=dcm4che \
     KC_SPI_TRUSTSTORE_FILE_FILE=/opt/java/openjdk/lib/security/cacerts \
     KC_SPI_TRUSTSTORE_FILE_HOSTNAME_VERIFICATION_POLICY=ANY \
     EXTRA_CACERTS=/opt/keycloak/conf/keystores/cacerts.p12 \
+    KC_LOG_GELF_HOST=logstash \
     DEBUG_PORT=*:8787
 
 ENV PATH /opt/keycloak/bin:$PATH

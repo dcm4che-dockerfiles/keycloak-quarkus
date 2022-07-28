@@ -421,60 +421,72 @@ Manually override the transaction type (optional, default is `true`).
 
 #### `KC_LOG`
 
-Enabled log handlers:
+Enable one or more log handlers by comma separated list of enumerated values:
 - `console` - console log handler (=default)
 - `file` - file log handler
-- `console,file` - console and file log handler
+- `gelf` - GELF log handler
+
+(optional, default is `console`).
+
+#### `KC_LOG_LEVEL`
+
+The log level of the root category or a comma-separated list of individual categories and their levels
+(optional, default is `INFO`). E.g.: `INFO,org.infinispan:DEBUG,org.jgroups:DEBUG`.
 
 #### `KC_LOG_FILE`
 Set the log file path and filename (optional, default is `/opt/keycloak/data/log/keycloak.log`).
 
 #### `KC_LOG_FILE_FORMAT`
+
 Set a format specific to file log entries (optional, default is `%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%c] (%t) %s%e%n`).
 
 #### `KC_LOG_FILE_ROTATION_MAX_FILE_SIZE`
+
 The maximum file size of the log file after which a rotation is executed (optional, default is `10M`).
 
 #### `KC_LOG_FILE_ROTATION_MAX_BACKUP_INDEX`
+
 The maximum number of backups to keep (optional, default is `5`).
 
-#### `KC_LOG_LEVEL`
-The log level of the root category or a comma-separated list of individual categories and their levels
-(optional, default is `INFO`). E.g.: `INFO,org.infinispan:DEBUG,org.jgroups:DEBUG`.
+#### `KC_LOG_GELF_HOST`
 
-### [Logstash/GELF Logger](https://logging.paluch.biz/) configuration:
+Hostname of the Logstash or Graylog Host. By default UDP is used, prefix the host with 'tcp:' to switch to TCP. Example: 'tcp:logstash'". (optional, default is `logstash`).
 
-#### `GELF_ENABLED`
+#### `KC_LOG_GELF_PORT`
 
-Whether emitting system logs to [Logstash](https://www.elastic.co/products/logstash) is enabled (optional, default is `false`).
+The port the Logstash or Graylog Host is called on (optional, default is `12201`).
 
-#### `LOGSTASH_HOST`
+#### `KC_LOG_GELF_VERSION`
 
-Hostname/IP-Address of the Logstash host. (optional, default is `logstash`).
+The gelf version to be used (optional, default is `1.1`).
 
-#### `LOGSTASH_PORT`
+#### `KC_LOG_GELF_FACILITY`
 
-Port of the Logstash host. (optional, default is `12201`).
+The facility (name of the process) that sends the message (optional, default is `keycloak`).
 
-#### `GELF_VERSION`
+#### `KC_LOG_GELF_LEVEL`
 
-GELF Version 1.0 or 1.1 (optional, default is `1.1`).
+Log-Level threshold (optional, default is `INFO`).
 
-#### `GELF_FACILITY`
+#### `KC_LOG_GELF_INCLUDE_STACK_TRACE`
 
-Name of the Facility (optional, default is `keycloak`).
+If set to true, occuring stack traces are included in the 'StackTrace' field in the gelf output (optional, default is `true`).
 
-#### `GELF_LEVEL`
+#### `KC_LOG_GELF_TIMESTAMP_FORMAT`
 
-Log-Level threshold (optional, default is `WARN`).
+Set the format for the gelf timestamp field. Uses Java SimpleDateFormat pattern (optional, default is `yyyy-MM-dd HH:mm:ss,SSS`).
 
-#### `GELF_EXTRACT_STACK_TRACE`
+#### `KC_LOG_GELF_MAX_MSG_SIZE`
 
-Indicates if the Stack-Trace shall be sent in the StackTrace field (optional, default is `true`).
+Maximum message size (in bytes). If the message size is exceeded, gelf will submit the message in multiple chunks (optional, default is `8192`).
 
-#### `GELF_FILTER_STACK_TRACE`
+#### `KC_LOG_GELF_INCLUDE_LOG_MSG_PARAMS`
 
-Indicates if Stack-Trace filtering shall be performed (optional, default is `true`).
+Include message parameters from the log event. (optional, default is `true`).
+
+#### `KC_LOG_GELF_INCLUDE_LOCATION`
+
+Include source code location (optional, default is `true`).
 
 ### [Cluster JDBC_PING configuration](https://github.com/ivangfr/keycloak-clustered):
 
