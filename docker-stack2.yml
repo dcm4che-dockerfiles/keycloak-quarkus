@@ -24,7 +24,7 @@ services:
       - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
       - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
   mariadb:
-    image: mariadb:10.7.3
+    image: mariadb:10.8.3
     deploy:
       endpoint_mode: dnsrr
       placement:
@@ -52,7 +52,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /var/local/dcm4chee-arc/mysql:/var/lib/mysql
   keycloak:
-    image: dcm4che/keycloak:19.0.0
+    image: dcm4che/keycloak:19.0.1
     deploy:
       endpoint_mode: dnsrr
       placement:

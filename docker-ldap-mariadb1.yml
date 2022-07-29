@@ -23,7 +23,7 @@ services:
       - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
       - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
   mariadb:
-    image: mariadb:10.7.3
+    image: mariadb:10.8.3
     deploy:
       endpoint_mode: dnsrr
       placement:
