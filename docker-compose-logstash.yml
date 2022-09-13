@@ -1,0 +1,78 @@
+version: "3"
+services:
+  elasticsearch:
+    image: elasticsearch:8.3.2
+    environment:
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+      http.cors.enabled: "true"
+      http.cors.allow-origin: "/.*/"
+      http.cors.allow-headers: "X-Requested-With,Content-Length,Content-Type,Authorization"
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /var/local/dcm4chee-arc/esdatadir:/usr/share/elasticsearch/data
+  kibana:
+    image: kibana:8.3.2
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+  logstash:
+    image: dcm4che/logstash-dcm4chee:8.3.2-14
+    ports:
+      - "12201:12201/udp"
+      - "8514:8514/udp"
+      - "8514:8514"
+      - "6514:6514"
+      - "25826:25826/udp"
+      - "9600:9600"
+    depends_on:
+      - elasticsearch
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /var/local/dcm4chee-arc/logstash:/usr/share/logstash/data
+  ldap:
+    image: dcm4che/slapd-dcm4chee:2.6.2-28.0
+    ports:
+      - "389:389"
+      - "636:636"
+    environment:
+      LDAP_URLS: ldap:/// ldaps:///
+    volumes:
+      - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
+      - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
+  keycloak:
+    image: dcm4che/keycloak:19.0.1
+    ports:
+      - "8843:8843"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: changeit
+      KC_HOSTNAME: gunter-nb
+      KC_HTTPS_PORT: 8843
+      KC_LOG: file,gelf
+      KC_SPI_LOGIN_PROTOCOL_OPENID_CONNECT_LEGACY_LOGOUT_REDIRECT_URI: "true"
+      ARCHIVE_HOST: gunter-nb
+      KIBANA_CLIENT_ID: kibana
+      KIBANA_CLIENT_SECRET: changeit
+      KIBANA_REDIRECT_URL: https://gunter-nb:8643/oauth2/callback/*
+      KEYCLOAK_WAIT_FOR: ldap:389 logstash:8514
+    depends_on:
+      - ldap
+      - logstash
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /var/local/dcm4chee-arc/keycloak:/opt/keycloak/data
