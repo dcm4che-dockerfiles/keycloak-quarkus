@@ -3007,7 +3007,7 @@
     "clientOfflineSessionIdleTimeout": "0",
     "cibaInterval": "5"
   },
-  "keycloakVersion": "19.0.1",
+  "keycloakVersion": "19.0.2",
   "userManagedAccessAllowed": false,
   "clientProfiles": {
     "profiles": []

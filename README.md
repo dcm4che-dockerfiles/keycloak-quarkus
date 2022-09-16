@@ -191,7 +191,11 @@ Set the context-path relative to '/' for serving resources. (optional, default i
 #### `KC_SPI_LOGIN_PROTOCOL_OPENID_CONNECT_LEGACY_LOGOUT_REDIRECT_URI`
 
 Enable backwards compatibility option `legacy-logout-redirect-uri` of oidc login protocol in the server configuration (default value is `false`).
-Required for logout by UI of current archive version (5.26.1). 
+Required for logout by UI of current archive version (5.28.0). 
+
+#### `KC_SPI_LOGIN_PROTOCOL_OPENID_CONNECT_SUPPRESS_LOGOUT_CONFIRMATION_SCREEN`
+
+Enables to suppress logout confirmation screen, if the user does not provide a valid idTokenHint (default value is `false`).
 
 ### [Configuring TLS](https://www.keycloak.org/server/enabletls):
 #### `KC_HTTP_ENABLED`
