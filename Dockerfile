@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11.0.15_10-jdk-focal
+FROM eclipse-temurin:11.0.16.1_1-jdk
 
 # explicitly set user/group IDs
 RUN groupadd -r keycloak --gid=1029 && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
@@ -22,7 +22,7 @@ RUN arch="$(dpkg --print-architecture)" \
     && gosu nobody true
 
 ENV KEYCLOAK_VERSION=19.0.3 \
-    DCM4CHE_VERSION=5.28.0
+    DCM4CHE_VERSION=5.29.0
 
 RUN cd $HOME \
     && curl -L https://github.com/keycloak/keycloak/releases/download/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar xz \
