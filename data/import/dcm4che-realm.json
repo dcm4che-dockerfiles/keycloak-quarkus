@@ -100,6 +100,10 @@
       "serviceAccountClientId": "${RS_CLIENT_ID}",
       "disableableCredentialTypes": [],
       "requiredActions": [],
+      "realmRoles": [
+        "default-roles-${REALM_NAME}",
+        "${AUTH_USER_ROLE}"
+      ],
       "notBefore": 0
     }
   ],
