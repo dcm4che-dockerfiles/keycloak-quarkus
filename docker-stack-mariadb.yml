@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   ldap:
-    image: dcm4che/slapd-dcm4chee:2.6.2-28.0
+    image: dcm4che/slapd-dcm4chee:2.6.3-29.1
     deploy:
       endpoint_mode: dnsrr
       placement:
@@ -22,7 +22,7 @@ services:
       - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
       - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
   mariadb:
-    image: mariadb:10.8.3
+    image: mariadb:10.10.2
     deploy:
       endpoint_mode: dnsrr
       placement:
@@ -38,7 +38,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /var/local/dcm4chee-arc/mysql:/var/lib/mysql
   keycloak:
-    image: dcm4che/keycloak:19.0.3
+    image: dcm4che/keycloak:20.0.2
     ports:
       - "8843:8843"
       - "8787:8787"

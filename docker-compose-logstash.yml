@@ -44,7 +44,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /var/local/dcm4chee-arc/logstash:/usr/share/logstash/data
   ldap:
-    image: dcm4che/slapd-dcm4chee:2.6.2-28.0
+    image: dcm4che/slapd-dcm4chee:2.6.3-29.1
     ports:
       - "389:389"
       - "636:636"
@@ -54,7 +54,7 @@ services:
       - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
       - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
   keycloak:
-    image: dcm4che/keycloak:19.0.3
+    image: dcm4che/keycloak:20.0.2
     ports:
       - "8843:8843"
     environment:
@@ -63,7 +63,6 @@ services:
       KC_HOSTNAME: gunter-nb
       KC_HTTPS_PORT: 8843
       KC_LOG: file,gelf
-      KC_SPI_LOGIN_PROTOCOL_OPENID_CONNECT_LEGACY_LOGOUT_REDIRECT_URI: "true"
       KC_SPI_LOGIN_PROTOCOL_OPENID_CONNECT_SUPPRESS_LOGOUT_CONFIRMATION_SCREEN: "true"
       ARCHIVE_HOST: gunter-nb
       KIBANA_CLIENT_ID: kibana

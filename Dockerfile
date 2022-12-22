@@ -21,7 +21,7 @@ RUN arch="$(dpkg --print-architecture)" \
     && gosu --version \
     && gosu nobody true
 
-ENV KEYCLOAK_VERSION=20.0.1 \
+ENV KEYCLOAK_VERSION=20.0.2 \
     DCM4CHE_VERSION=5.29.1
 
 RUN cd $HOME \
@@ -37,7 +37,7 @@ RUN cd $HOME \
     && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-net/$DCM4CHE_VERSION/dcm4che-net-$DCM4CHE_VERSION.jar \
     && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-net-audit/$DCM4CHE_VERSION/dcm4che-net-audit-$DCM4CHE_VERSION.jar \
     && chown -R keycloak:keycloak /opt/keycloak \
-    && mkdir /docker-entrypoint.d
+    && mkdir /docker-entrypoint.d && mv /opt/keycloak/lib/quarkus /docker-entrypoint.d/quarkus
 
 COPY docker-entrypoint.sh setenv.sh /
 COPY --chown=keycloak:keycloak conf /opt/keycloak/conf/
@@ -73,6 +73,7 @@ ENV REALM_NAME=dcm4che \
 ENV PATH /opt/keycloak/bin:$PATH
 
 VOLUME /opt/keycloak/data/
+VOLUME /opt/keycloak/lib/quarkus
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["kc.sh", "start", "--import-realm"]

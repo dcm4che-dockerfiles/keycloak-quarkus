@@ -10,6 +10,9 @@ if [ "$1" = 'kc.sh' ]; then
     if [ ! -f /opt/keycloak/data/import/dcm4che-realm.json ]; then
       cp -av /docker-entrypoint.d/data /opt/keycloak/
     fi
+    if [ ! -f /opt/keycloak/lib/quarkus/build-system.properties ]; then
+      cp -av /docker-entrypoint.d/quarkus /opt/keycloak/lib
+    fi
     if [ ! -f /opt/keycloak/themes/keycloak/login/theme.properties ]; then
       cp -av /docker-entrypoint.d/themes /opt/keycloak/
     fi

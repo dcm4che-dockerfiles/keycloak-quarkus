@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   ldap:
-    image: dcm4che/slapd-dcm4chee:2.6.2-28.0
+    image: dcm4che/slapd-dcm4chee:2.6.3-29.1
     deploy:
       endpoint_mode: dnsrr
       placement:
@@ -18,12 +18,12 @@ services:
       LDAP_EXTRA_HOST: "ldap1"
       LDAP_EXTRA_HOST_IP_PREFIX: "172.18.0."
     extra_hosts:
-      - "ldap2:10.109.53.26"
+      - "ldap2:10.101.216.76"
     volumes:
       - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
       - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
   mariadb:
-    image: mariadb:10.8.3
+    image: mariadb:10.10.2
     deploy:
       endpoint_mode: dnsrr
       placement:
@@ -51,7 +51,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /var/local/dcm4chee-arc/mysql:/var/lib/mysql
   keycloak:
-    image: dcm4che/keycloak:19.0.3
+    image: dcm4che/keycloak:20.0.2
     deploy:
       endpoint_mode: dnsrr
       placement:
@@ -70,7 +70,6 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: changeit
       KC_HTTPS_PORT: 8843
-      KC_HTTP_RELATIVE_PATH: /auth
       KC_HOSTNAME: node1
       KC_DB: mariadb
       KC_DB_URL_DATABASE: keycloak
@@ -80,11 +79,11 @@ services:
       KC_LOG: file
       KC_LOG_LEVEL: INFO,org.infinispan:DEBUG,org.jgroups:DEBUG
       KC_CACHE_CONFIG_FILE: cache-ispn-jdbc-ping.xml
-      JGROUPS_DISCOVERY_EXTERNAL_IP: 10.109.53.228
+      JGROUPS_DISCOVERY_EXTERNAL_IP: 10.101.216.136
       JGROUPS_BIND_IP_PREFIX: 172.18.0.
       KEYCLOAK_WAIT_FOR: ldap:389 mariadb:3306
     extra_hosts:
-      - "ldap:10.109.53.228"
+      - "ldap:10.101.216.136"
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro

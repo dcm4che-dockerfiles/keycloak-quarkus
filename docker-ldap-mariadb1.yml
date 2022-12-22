@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   ldap:
-    image: dcm4che/slapd-dcm4chee:2.6.2-28.0
+    image: dcm4che/slapd-dcm4chee:2.6.3-29.1
     deploy:
       endpoint_mode: dnsrr
       placement:
@@ -18,12 +18,12 @@ services:
       LDAP_EXTRA_HOST: "ldap1"
       LDAP_EXTRA_HOST_IP_PREFIX: "172.18.0."
     extra_hosts:
-      - "ldap2:10.109.53.26"
+      - "ldap2:10.101.216.76"
     volumes:
       - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
       - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
   mariadb:
-    image: mariadb:10.8.3
+    image: mariadb:10.10.2
     deploy:
       endpoint_mode: dnsrr
       placement:
