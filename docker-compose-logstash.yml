@@ -1,7 +1,7 @@
 version: "3"
 services:
   elasticsearch:
-    image: elasticsearch:8.3.2
+    image: elasticsearch:8.4.2
     environment:
       ES_JAVA_OPTS: -Xms512m -Xmx512m
       http.cors.enabled: "true"
@@ -20,7 +20,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /var/local/dcm4chee-arc/esdatadir:/usr/share/elasticsearch/data
   kibana:
-    image: kibana:8.3.2
+    image: kibana:8.4.2
     ports:
       - "5601:5601"
     depends_on:
@@ -29,7 +29,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
   logstash:
-    image: dcm4che/logstash-dcm4chee:8.3.2-14
+    image: dcm4che/logstash-dcm4chee:8.4.2-15
     ports:
       - "12201:12201/udp"
       - "8514:8514/udp"
