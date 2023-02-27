@@ -63,7 +63,8 @@
   "otpPolicyCodeReusable": false,
   "otpSupportedApplications": [
     "totpAppFreeOTPName",
-    "totpAppGoogleName"
+    "totpAppGoogleName",
+    "totpAppMicrosoftAuthenticatorName"
   ],
   "webAuthnPolicyRpEntityName": "keycloak",
   "webAuthnPolicySignatureAlgorithms": [
@@ -104,7 +105,8 @@
         "default-roles-${REALM_NAME}",
         "${AUTH_USER_ROLE}"
       ],
-      "notBefore": 0
+      "notBefore": 0,
+      "groups": []
     }
   ],
   "scopeMappings": [
@@ -2655,7 +2657,7 @@
     "cibaInterval": "5",
     "realmReusableOtpCode": "false"
   },
-  "keycloakVersion": "20.0.3",
+  "keycloakVersion": "21.0.0",
   "userManagedAccessAllowed": false,
   "clientProfiles": {
     "profiles": []

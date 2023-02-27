@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17.0.5_8-jdk
+FROM eclipse-temurin:17.0.6_10-jdk
 
 # explicitly set user/group IDs
 RUN groupadd -r keycloak --gid=1029 && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
@@ -21,7 +21,7 @@ RUN arch="$(dpkg --print-architecture)" \
     && gosu --version \
     && gosu nobody true
 
-ENV KEYCLOAK_VERSION=20.0.3 \
+ENV KEYCLOAK_VERSION=21.0.0 \
     DCM4CHE_VERSION=5.29.2
 
 RUN cd $HOME \
