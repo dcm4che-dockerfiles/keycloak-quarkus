@@ -21,8 +21,8 @@ RUN arch="$(dpkg --print-architecture)" \
     && gosu --version \
     && gosu nobody true
 
-ENV KEYCLOAK_VERSION=21.0.0 \
-    DCM4CHE_VERSION=5.29.2
+ENV KEYCLOAK_VERSION=21.0.2 \
+    DCM4CHE_VERSION=5.30.0
 
 RUN cd $HOME \
     && curl -L https://github.com/keycloak/keycloak/releases/download/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar xz \
