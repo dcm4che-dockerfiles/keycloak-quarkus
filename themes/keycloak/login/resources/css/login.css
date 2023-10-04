@@ -1,6 +1,5 @@
 .login-pf body {
-    /* background: url("../img/keycloak-bg.png") no-repeat center center fixed; */
-    background: url("../img/bg2.jpg") no-repeat center center fixed;
+    background: url("../img/j4care-bg.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
 }
@@ -440,18 +439,18 @@ a.zocial  {
   margin-right: auto;
 }
 
-.login-pf-page .btn-primary {
+.login-pf-page .btn-primary, .login-pf-page .pf-c-button.pf-m-primary {
     margin-top: 0;
     background:rgba(6, 29, 47, 0.84);
     background-image:rgba(6, 29, 47, 0.84);
     border-color:rgba(6, 29, 47, 0.84);
 }
-.login-pf-page .btn-primary:hover,.login-pf-page .btn-primary:active{
+.login-pf-page .btn-primary:hover,.login-pf-page .btn-primary:active,.login-pf-page .pf-c-button.pf-m-primary:hover,.login-pf-page .pf-c-button.pf-m-primary:active{
     background:rgba(6, 29, 47, 0.90);
     background-image:rgba(6, 29, 47, 0.90);
 }
 .login-pf-page{
-    background-image: url(../img/logo.png);
+    background-image: url(../img/j4care-logo.png);
     background-repeat: no-repeat;
     background-position: 34px 4px;
 }
