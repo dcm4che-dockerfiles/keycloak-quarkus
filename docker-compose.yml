@@ -1,7 +1,7 @@
 version: "3"
 services:
   ldap:
-    image: dcm4che/slapd-dcm4chee:2.6.5-31.1
+    image: dcm4che/slapd-dcm4chee:2.6.5-31.2
     ports:
       - "389:389"
       - "636:636"
@@ -11,7 +11,7 @@ services:
       - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
       - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
   keycloak:
-    image: dcm4che/keycloak:22.0.4
+    image: dcm4che/keycloak:22.0.5
     ports:
       - "8843:8843"
     environment:

@@ -1,10 +1,10 @@
-FROM eclipse-temurin:17.0.8_7-jdk
+FROM eclipse-temurin:17.0.9_9-jdk
 
 # explicitly set user/group IDs
 RUN groupadd -r keycloak --gid=1029 && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
 
 # grab gosu for easy step-down from root
-ENV GOSU_VERSION 1.16
+ENV GOSU_VERSION 1.17
 RUN arch="$(dpkg --print-architecture)" \
     && set -x \
     && apt-get update \
@@ -21,8 +21,8 @@ RUN arch="$(dpkg --print-architecture)" \
     && gosu --version \
     && gosu nobody true
 
-ENV KEYCLOAK_VERSION=22.0.4 \
-    DCM4CHE_VERSION=5.31.1
+ENV KEYCLOAK_VERSION=22.0.5 \
+    DCM4CHE_VERSION=5.31.2
 
 RUN cd $HOME \
     && curl -L https://github.com/keycloak/keycloak/releases/download/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar xz \

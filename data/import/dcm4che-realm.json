@@ -2658,7 +2658,7 @@
     "cibaInterval": "5",
     "realmReusableOtpCode": "false"
   },
-  "keycloakVersion": "22.0.4",
+  "keycloakVersion": "22.0.5",
   "userManagedAccessAllowed": false,
   "clientProfiles": {
     "profiles": []
