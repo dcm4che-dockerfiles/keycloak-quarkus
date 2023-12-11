@@ -1,0 +1,34 @@
+version: "3"
+services:
+  ldap:
+    image: dcm4che/slapd-dcm4chee:2.6.5-31.2
+    ports:
+      - "389:389"
+      - "636:636"
+    environment:
+      LDAP_URLS: ldap:/// ldaps:///
+    volumes:
+      - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
+      - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
+  keycloak:
+    image: dcm4che/keycloak:amazoncoretto-22.0.5
+    ports:
+      - "8843:8843"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: changeit
+      KC_HOSTNAME: gunter-nb
+      KC_HTTPS_PORT: 8843
+      KC_LOG: file
+      KC_SPI_LOGIN_PROTOCOL_OPENID_CONNECT_SUPPRESS_LOGOUT_CONFIRMATION_SCREEN: "true"
+      ARCHIVE_HOST: gunter-nb
+      KIBANA_CLIENT_ID: kibana
+      KIBANA_CLIENT_SECRET: changeit
+      KIBANA_REDIRECT_URL: https://gunter-nb:8643/oauth2/callback/*
+      KEYCLOAK_WAIT_FOR: ldap:389
+    depends_on:
+      - ldap
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /var/local/dcm4chee-arc/keycloak:/opt/keycloak/data
