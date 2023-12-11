@@ -21,7 +21,7 @@ RUN arch="$(dpkg --print-architecture)" \
     && gosu --version \
     && gosu nobody true
 
-ENV KEYCLOAK_VERSION=22.0.5 \
+ENV KEYCLOAK_VERSION=23.0.1 \
     DCM4CHE_VERSION=5.31.2
 
 RUN cd $HOME \

@@ -11,7 +11,7 @@ services:
       - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
       - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
   keycloak:
-    image: dcm4che/keycloak:amazoncoretto-22.0.5
+    image: dcm4che/keycloak:amazoncoretto-23.0.1
     ports:
       - "8843:8843"
     environment:
@@ -20,7 +20,6 @@ services:
       KC_HOSTNAME: gunter-nb
       KC_HTTPS_PORT: 8843
       KC_LOG: file
-      KC_SPI_LOGIN_PROTOCOL_OPENID_CONNECT_SUPPRESS_LOGOUT_CONFIRMATION_SCREEN: "true"
       ARCHIVE_HOST: gunter-nb
       KIBANA_CLIENT_ID: kibana
       KIBANA_CLIENT_SECRET: changeit
@@ -32,3 +31,4 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
       - /var/local/dcm4chee-arc/keycloak:/opt/keycloak/data
+      - /var/local/dcm4chee-arc/keycloak-themes:/opt/keycloak/themes
