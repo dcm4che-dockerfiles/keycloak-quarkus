@@ -30,7 +30,7 @@ if [ "$1" = 'kc.sh' ]; then
         while ! nc -w 1 -z ${c/:/ }; do sleep 1; done
         echo "done"
     done
-    set -- gosu keycloak "$@"
+    set -- chroot --userspec=keycloak:keycloak / "$@"
     echo "Starting Keycloak $KEYCLOAK_VERSION"
 fi
 

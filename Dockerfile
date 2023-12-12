@@ -3,23 +3,11 @@ FROM eclipse-temurin:17.0.9_9-jdk
 # explicitly set user/group IDs
 RUN groupadd -r keycloak --gid=1029 && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
 
-# grab gosu for easy step-down from root
-ENV GOSU_VERSION 1.17
 RUN arch="$(dpkg --print-architecture)" \
     && set -x \
     && apt-get update \
     && apt-get install -y gnupg netcat-openbsd unzip \
-    && rm -rf /var/lib/apt/lists/* \
-    && curl -o /usr/local/bin/gosu -fSL "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$arch" \
-    && curl -o /usr/local/bin/gosu.asc -fSL "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$arch.asc" \
-    && export GNUPGHOME="$(mktemp -d)" \
-    && gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 \
-    && gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu \
-    && gpgconf --kill all \
-    && rm -rf "$GNUPGHOME" /usr/local/bin/gosu.asc \
-    && chmod +x /usr/local/bin/gosu \
-    && gosu --version \
-    && gosu nobody true
+    && rm -rf /var/lib/apt/lists/*
 
 ENV KEYCLOAK_VERSION=23.0.1 \
     DCM4CHE_VERSION=5.31.2
