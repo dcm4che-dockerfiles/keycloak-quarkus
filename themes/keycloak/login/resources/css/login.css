@@ -454,3 +454,33 @@ a.zocial  {
     background-repeat: no-repeat;
     background-position: 34px 4px;
 }
+#kc-form-login #kc-form-buttons #kc-login{
+    margin-top: 0;
+    background:rgba(6, 29, 47, 0.84);
+    border:none;
+    color:white;
+    width:100%;
+}
+#kc-form-login #kc-form-buttons #kc-login:hover, kc-form-login .form-group > div > button:hover{
+    background: rgb(5 23 37 / 84%);
+}
+#kc-form-login .form-group > div > button{
+    background:rgba(6, 29, 47, 0.84);
+    border:none;
+    color:white;
+}
+#kc-form-login .form-group > input, #kc-form-login .form-group > div > input{
+    height: 32px;
+    border: 1px solid #e1e1e1;
+    border-bottom: 1px solid #7e7e7e;
+}
+#kc-form-login .form-group > label, #kc-form-login .form-group > input{
+    width:100%;
+    font-weight: 500;
+}
+
+#kc-form-login .form-group > div{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr auto;
+}
