@@ -478,6 +478,9 @@ a.zocial  {
     width:100%;
     font-weight: 500;
 }
+#kc-form-login .form-group > input{
+    padding-left:7px;
+}
 
 #kc-form-login .form-group > div{
     display: grid;
