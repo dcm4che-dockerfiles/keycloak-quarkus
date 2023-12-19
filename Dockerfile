@@ -9,7 +9,7 @@ RUN arch="$(dpkg --print-architecture)" \
     && apt-get install -y gnupg netcat-openbsd unzip \
     && rm -rf /var/lib/apt/lists/*
 
-ENV KEYCLOAK_VERSION=23.0.1 \
+ENV KEYCLOAK_VERSION=23.0.3 \
     DCM4CHE_VERSION=5.31.2
 
 RUN cd $HOME \
