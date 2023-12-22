@@ -53,6 +53,10 @@ Secret for Keycloak client for securing RESTful services of the archive (optiona
 
 File containing secret for Keycloak client for securing RESTful services of the archive (alternative to `RS_CLIENT_SECRET`).
 
+### `AUTH_USER_ROLE`
+
+User role associated to Service Account of Keycloak client for securing RESTful services of the archive (optional, default is `user`).
+
 #### `WILDFLY_CONSOLE`
 
 Keycloak client ID for [securing the Wildfly Administration Console](https://docs.jboss.org/author/display/WFLY/Protecting+Wildfly+Adminstration+Console+With+Keycloak)
