@@ -55,7 +55,7 @@ File containing secret for Keycloak client for securing RESTful services of the 
 
 ### `AUTH_USER_ROLE`
 
-User role associated to Service Account of Keycloak client for securing RESTful services of the archive (optional, default is `user`).
+User role associated to Service Account of Keycloak client for securing RESTful services of the archive (optional, default is `auth`).
 
 #### `WILDFLY_CONSOLE`
 
