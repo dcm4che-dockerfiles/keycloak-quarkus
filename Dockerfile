@@ -36,6 +36,7 @@ ENV REALM_NAME=dcm4che \
     UI_CLIENT_ID=dcm4chee-arc-ui \
     RS_CLIENT_ID=dcm4chee-arc-rs \
     AUTH_USER_ROLE=auth \
+    SUPER_USER_ROLE=root \
     WILDFLY_CONSOLE=wildfly-console \
     KIBANA_CLIENT_ID=kibana \
     KIBANA_REDIRECT_URL=https://kibana:8643/* \
