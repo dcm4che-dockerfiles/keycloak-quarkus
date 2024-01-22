@@ -9,8 +9,8 @@ RUN arch="$(dpkg --print-architecture)" \
     && apt-get install -y gnupg netcat-openbsd unzip \
     && rm -rf /var/lib/apt/lists/*
 
-ENV KEYCLOAK_VERSION=23.0.3 \
-    DCM4CHE_VERSION=5.31.2
+ENV KEYCLOAK_VERSION=23.0.4 \
+    DCM4CHE_VERSION=5.31.3
 
 RUN cd $HOME \
     && curl -L https://github.com/keycloak/keycloak/releases/download/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar xz \
