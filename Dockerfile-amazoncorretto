@@ -1,4 +1,4 @@
-FROM amazoncorretto:17.0.9
+FROM amazoncorretto:17.0.10
 
 RUN arch="amd64" \
     && set -eux \
@@ -7,7 +7,7 @@ RUN arch="amd64" \
     && groupadd -r keycloak --gid=1029 \
     && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
 
-ENV KEYCLOAK_VERSION=23.0.4 \
+ENV KEYCLOAK_VERSION=23.0.6 \
     DCM4CHE_VERSION=5.31.3
 
 RUN cd $HOME \

@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17.0.9_9-jdk
+FROM eclipse-temurin:17.0.10_7-jdk
 
 # explicitly set user/group IDs
 RUN groupadd -r keycloak --gid=1029 && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
@@ -9,7 +9,7 @@ RUN arch="$(dpkg --print-architecture)" \
     && apt-get install -y gnupg netcat-openbsd unzip \
     && rm -rf /var/lib/apt/lists/*
 
-ENV KEYCLOAK_VERSION=23.0.4 \
+ENV KEYCLOAK_VERSION=23.0.6 \
     DCM4CHE_VERSION=5.31.3
 
 RUN cd $HOME \
