@@ -8,7 +8,7 @@ RUN arch="amd64" \
     && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
 
 ENV KEYCLOAK_VERSION=23.0.6 \
-    DCM4CHE_VERSION=5.31.3
+    DCM4CHE_VERSION=5.32.0
 
 RUN cd $HOME \
     && curl -L https://github.com/keycloak/keycloak/releases/download/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar xz \

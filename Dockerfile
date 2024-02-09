@@ -10,7 +10,7 @@ RUN arch="$(dpkg --print-architecture)" \
     && rm -rf /var/lib/apt/lists/*
 
 ENV KEYCLOAK_VERSION=23.0.6 \
-    DCM4CHE_VERSION=5.31.3
+    DCM4CHE_VERSION=5.32.0
 
 RUN cd $HOME \
     && curl -L https://github.com/keycloak/keycloak/releases/download/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar xz \
