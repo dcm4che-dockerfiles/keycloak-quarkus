@@ -1,4 +1,7 @@
-FROM eclipse-temurin:17.0.10_7-jdk
+FROM azul/prime:17.0.10-7-24.01.0.0
+
+# reset azul/prime working directory: /opt/zing
+WORKDIR /
 
 # explicitly set user/group IDs
 RUN groupadd -r keycloak --gid=1029 && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
@@ -6,7 +9,7 @@ RUN groupadd -r keycloak --gid=1029 && useradd -r -g keycloak --uid=1029 -d /opt
 RUN arch="$(dpkg --print-architecture)" \
     && set -x \
     && apt-get update \
-    && apt-get install -y gnupg netcat-openbsd unzip \
+    && apt-get install -y curl gnupg netcat-openbsd unzip \
     && rm -rf /var/lib/apt/lists/*
 
 ENV KEYCLOAK_VERSION=23.0.7 \

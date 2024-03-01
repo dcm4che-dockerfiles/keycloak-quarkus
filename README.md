@@ -243,7 +243,7 @@ Type (`JKS` or `PKCS12`) of the keystore specified by `KEYSTORE` (default is `PK
 #### `KC_HTTPS_TRUST_STORE_FILE`
 
 Path to keystore file with trusted certificates for TLS (optional, default is the default Java truststore
-`/usr/local/openjdk-11/lib/security/cacerts`). s.o. [EXTRA_CACERTS](#extra_cacerts).
+`$JAVA_HOME/lib/security/cacerts`). s.o. [EXTRA_CACERTS](#extra_cacerts).
 
 #### `KC_HTTPS_TRUST_STORE_PASSWORD`
 
@@ -321,7 +321,7 @@ Default value is `ANY`.
 #### `KC_SPI_TRUSTSTORE_FILE_FILE`
 
 Path to keystore file with trusted certificates for verifying server certificates on outgoing HTTPs requests
-(optional, default is the default Java truststore `/usr/local/openjdk-11/lib/security/cacerts`).
+(optional, default is the default Java truststore `$JAVA_HOME/lib/security/cacerts`).
 s.o. [EXTRA_CACERTS](#extra_cacerts).
 
 #### `KC_HTTPS_TRUST_STORE_PASSWORD`

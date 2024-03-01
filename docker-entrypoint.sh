@@ -4,7 +4,7 @@ set -e
 
 if [ "$1" = 'kc.sh' ]; then
 
-    . setenv.sh
+    . /setenv.sh
 
 	  chown -c keycloak:keycloak /opt/keycloak/data /opt/keycloak/themes
     if [ ! -f /opt/keycloak/data/import/dcm4che-realm.json ]; then
