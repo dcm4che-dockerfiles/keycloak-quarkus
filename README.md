@@ -70,7 +70,7 @@ of the archive. Default value is `dcm4chee-arc`.
 #### `ARCHIVE_MANAGEMENT_HOST`
 
 Hostname of the archive device referred by OIDC Keycloak clients for securing the Wildfly Administration Console
-of the archive. Default value is `dcm4chee-arc`.
+of the archive. Default value is `$ARCHIVE_HOST`.
 
 #### `ARCHIVE_HTTP_PORT`
 
