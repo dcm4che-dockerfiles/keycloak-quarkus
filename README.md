@@ -64,8 +64,13 @@ of the archive (optional, default is `wildfly-console`).
 
 #### `ARCHIVE_HOST`
 
-Hostname of the archive device referred by OIDC Keycloak clients for securing the UI, RESTful services
-and the Wildfly Administration Console of the archive. Default value is `dcm4chee-arc`.
+Hostname of the archive device referred by OIDC Keycloak clients for securing the UI and RESTful services
+of the archive. Default value is `dcm4chee-arc`.
+
+#### `ARCHIVE_MANAGEMENT_HOST`
+
+Hostname of the archive device referred by OIDC Keycloak clients for securing the Wildfly Administration Console
+of the archive. Default value is `dcm4chee-arc`.
 
 #### `ARCHIVE_HTTP_PORT`
 

@@ -792,17 +792,17 @@
     {
       "id": "1f4897e9-a4fb-4c75-80b9-c431b2afd6eb",
       "clientId": "${WILDFLY_CONSOLE}",
-      "rootUrl": "https://${ARCHIVE_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}",
-      "adminUrl": "https://${ARCHIVE_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}",
+      "rootUrl": "https://${ARCHIVE_MANAGEMENT_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}",
+      "adminUrl": "https://${ARCHIVE_MANAGEMENT_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "https://${ARCHIVE_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}/*"
+        "https://${ARCHIVE_MANAGEMENT_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}/*"
       ],
       "webOrigins": [
-        "https://${ARCHIVE_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}"
+        "https://${ARCHIVE_MANAGEMENT_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}"
       ],
       "notBefore": 0,
       "bearerOnly": false,
