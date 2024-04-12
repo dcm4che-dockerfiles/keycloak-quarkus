@@ -41,14 +41,13 @@ ENV REALM_NAME=dcm4che \
     AUTH_USER_ROLE=auth \
     SUPER_USER_ROLE=root \
     WILDFLY_CONSOLE=wildfly-console \
+    WILDFLY_CONSOLE_REDIRECT_URL=https://dcm4chee-arc:9993/console/* \
     KIBANA_CLIENT_ID=kibana \
     KIBANA_REDIRECT_URL=https://kibana:8643/* \
     ELASTIC_CLIENT_ID=elastic \
     ARCHIVE_HOST=dcm4chee-arc \
-    ARCHIVE_MANAGEMENT_HOST=$ARCHIVE_HOST \
     ARCHIVE_HTTP_PORT=8080 \
     ARCHIVE_HTTPS_PORT=8443 \
-    ARCHIVE_MANAGEMENT_HTTPS_PORT=9993 \
     LDAP_URL=ldap://ldap:389 \
     LDAP_BASE_DN=dc=dcm4che,dc=org \
     SSL_REQUIRED=external \

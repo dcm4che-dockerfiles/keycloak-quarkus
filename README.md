@@ -59,18 +59,17 @@ User role associated to Service Account of Keycloak client for securing RESTful 
 
 #### `WILDFLY_CONSOLE`
 
-Keycloak client ID for [securing the Wildfly Administration Console](https://docs.jboss.org/author/display/WFLY/Protecting+Wildfly+Adminstration+Console+With+Keycloak)
+Keycloak client ID for [securing the Wildfly Management Console](https://www.wildfly.org/guides/security-oidc-management-console)
 of the archive (optional, default is `wildfly-console`).
+
+#### `WILDFLY_CONSOLE_REDIRECT_URL`
+
+Redirect URL of Keycloak client for securing the Wildfly Management Console. Default value is `https://dcm4chee-arc:9993/console/*`.
 
 #### `ARCHIVE_HOST`
 
 Hostname of the archive device referred by OIDC Keycloak clients for securing the UI and RESTful services
 of the archive. Default value is `dcm4chee-arc`.
-
-#### `ARCHIVE_MANAGEMENT_HOST`
-
-Hostname of the archive device referred by OIDC Keycloak clients for securing the Wildfly Administration Console
-of the archive. Default value is `$ARCHIVE_HOST`.
 
 #### `ARCHIVE_HTTP_PORT`
 
@@ -79,10 +78,6 @@ HTTP port of the UI of the archive (optional, default is `8080`).
 #### `ARCHIVE_HTTPS_PORT`
 
 HTTPS port of the UI of the archive (optional, default is `8443`).
-
-#### `ARCHIVE_MANAGEMENT_HTTPS_PORT`
-
-HTTPS port of Wildfly Administration Console of the archive (optional, default is `9993`).
 
 #### `KIBANA_CLIENT_ID`
 

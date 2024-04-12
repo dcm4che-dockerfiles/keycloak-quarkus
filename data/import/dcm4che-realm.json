@@ -445,8 +445,7 @@
         "http://${ARCHIVE_HOST}:${ARCHIVE_HTTP_PORT}/dcm4chee-arc/ui2/*"
       ],
       "webOrigins": [
-        "http://${ARCHIVE_HOST}:${ARCHIVE_HTTP_PORT}",
-        "https://${ARCHIVE_HOST}:${ARCHIVE_HTTPS_PORT}"
+        "+"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -792,17 +791,15 @@
     {
       "id": "1f4897e9-a4fb-4c75-80b9-c431b2afd6eb",
       "clientId": "${WILDFLY_CONSOLE}",
-      "rootUrl": "https://${ARCHIVE_MANAGEMENT_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}",
-      "adminUrl": "https://${ARCHIVE_MANAGEMENT_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "https://${ARCHIVE_MANAGEMENT_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}/*"
+        "${WILDFLY_CONSOLE_REDIRECT_URL}"
       ],
       "webOrigins": [
-        "https://${ARCHIVE_MANAGEMENT_HOST}:${ARCHIVE_MANAGEMENT_HTTPS_PORT}"
+        "+"
       ],
       "notBefore": 0,
       "bearerOnly": false,
