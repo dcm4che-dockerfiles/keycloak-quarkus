@@ -6,11 +6,12 @@ if [ "$1" = 'kc.sh' ]; then
 
     . /setenv.sh
 
-	  chown -c keycloak:keycloak /opt/keycloak/data /opt/keycloak/themes
+    chown -c keycloak:keycloak /opt/keycloak/data /opt/keycloak/themes
     if [ ! -f /opt/keycloak/data/import/dcm4che-realm.json ]; then
       cp -av /docker-entrypoint.d/data /opt/keycloak/
     fi
-    if [ ! -f /opt/keycloak/lib/quarkus/build-system.properties ]; then
+    if ! cmp -s /opt/keycloak/lib/quarkus/build-system.properties \
+             /docker-entrypoint.d/quarkus/build-system.properties; then
       cp -av /docker-entrypoint.d/quarkus /opt/keycloak/lib
     fi
     if [ ! -f /opt/keycloak/themes/keycloak/login/theme.properties ]; then
