@@ -34,9 +34,9 @@
         </stack>
         <stack name="mariadb-jdbc-ping-tcp" extends="tcp">
             <TCP external_addr="${env.JGROUPS_DISCOVERY_EXTERNAL_IP:127.0.0.1}" bind_addr="${env.JGROUPS_BIND_IP}" bind_port="${env.JGROUPS_TCP_PORT:7600}" />
-            <JDBC_PING connection_driver="com.mysql.jdbc.Driver"
+            <JDBC_PING connection_driver="org.mariadb.jdbc.Driver"
                        connection_username="${env.KC_DB_USERNAME}" connection_password="${env.KC_DB_PASSWORD}"
-                       connection_url="jdbc:mysql://${env.KC_DB_URL_HOST}/${env.KC_DB_URL_DATABASE}"
+                       connection_url="jdbc:mariadb://${env.KC_DB_URL_HOST}/${env.KC_DB_URL_DATABASE}"
                        initialize_sql="CREATE TABLE IF NOT EXISTS JGROUPSPING (own_addr varchar(200) NOT NULL, cluster_name varchar(200) NOT NULL, ping_data varbinary(5000) DEFAULT NULL, PRIMARY KEY (own_addr, cluster_name)) ENGINE=InnoDB DEFAULT CHARSET=utf8;"
                        info_writer_sleep_time="500"
                        remove_all_data_on_view_change="true"
