@@ -1,4 +1,4 @@
-FROM azul/zulu-openjdk:17.0.10-jdk
+FROM azul/zulu-openjdk:21.0.3-jdk
 
 # explicitly set user/group IDs
 RUN groupadd -r keycloak --gid=1029 && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
@@ -9,8 +9,8 @@ RUN arch="$(dpkg --print-architecture)" \
     && apt-get install -y curl gnupg netcat-openbsd unzip \
     && rm -rf /var/lib/apt/lists/*
 
-ENV KEYCLOAK_VERSION=24.0.3 \
-    DCM4CHE_VERSION=5.32.0
+ENV KEYCLOAK_VERSION=24.0.4 \
+    DCM4CHE_VERSION=5.32.1
 
 RUN cd $HOME \
     && curl -L https://github.com/keycloak/keycloak/releases/download/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar xz \

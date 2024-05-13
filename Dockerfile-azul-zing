@@ -1,4 +1,4 @@
-FROM azul/prime:17.0.10-7-24.01.0.0
+FROM azul/prime:21.0.2-13-24.03.0.0
 
 # reset azul/prime working directory: /opt/zing
 WORKDIR /
@@ -12,8 +12,8 @@ RUN arch="$(dpkg --print-architecture)" \
     && apt-get install -y curl gnupg netcat-openbsd unzip \
     && rm -rf /var/lib/apt/lists/*
 
-ENV KEYCLOAK_VERSION=24.0.3 \
-    DCM4CHE_VERSION=5.32.0
+ENV KEYCLOAK_VERSION=24.0.4 \
+    DCM4CHE_VERSION=5.32.1
 
 RUN cd $HOME \
     && curl -L https://github.com/keycloak/keycloak/releases/download/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar xz \
