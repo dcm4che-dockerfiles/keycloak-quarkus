@@ -2821,7 +2821,7 @@
     "clientSessionMaxLifespan": "0",
     "organizationsEnabled": "false"
   },
-  "keycloakVersion": "25.0.2",
+  "keycloakVersion": "25.0.5",
   "userManagedAccessAllowed": false,
   "organizationsEnabled": false,
   "clientProfiles": {

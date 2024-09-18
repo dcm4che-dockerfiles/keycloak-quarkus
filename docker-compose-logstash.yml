@@ -54,13 +54,14 @@ services:
       - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
       - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
   keycloak:
-    image: dcm4che/keycloak:25.0.2
+    image: dcm4che/keycloak:25.0.5
     ports:
       - "8843:8843"
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: changeit
-      KC_HOSTNAME: gunter-nb
+      KC_HOSTNAME: https://gunter-nb:8843
+      KC_HOSTNAME_BACKCHANNEL_DYNAMIC: 'true'
       KC_HTTPS_PORT: 8843
       KC_LOG: file,gelf
       ARCHIVE_HOST: gunter-nb

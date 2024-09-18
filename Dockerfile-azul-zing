@@ -1,4 +1,4 @@
-FROM azul/prime:21.0.2-13-24.03.0.0
+FROM azul/prime:21.0.4-4-24.08.0.0
 
 # reset azul/prime working directory: /opt/zing
 WORKDIR /
@@ -12,7 +12,7 @@ RUN arch="$(dpkg --print-architecture)" \
     && apt-get install -y curl gnupg netcat-openbsd unzip \
     && rm -rf /var/lib/apt/lists/*
 
-ENV KEYCLOAK_VERSION=25.0.2 \
+ENV KEYCLOAK_VERSION=25.0.5 \
     DCM4CHE_VERSION=5.33.0
 
 RUN cd $HOME \
