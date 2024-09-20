@@ -215,15 +215,15 @@ HTTPS port of Keycloak (optional, default is `8443`).
 Path to keystore file with private key and certificate for HTTPS (default is
 `/opt/keycloak/conf/keystore/key.p12`, with sample key + certificate:
 ```
-Owner: CN=dcm4che, O=dcm4che.org, C=AT
+Owner: OU=Gazelle, CN=IHE Europe CA, O=IHE Europe, C=FR
 Issuer: OU=Gazelle, CN=IHE Europe CA, O=IHE Europe, C=FR
-Serial number: 4b3
-Valid from: Fri Sep 30 11:24:50 CEST 2022 until: Thu Sep 30 11:24:50 CEST 2032
+Serial number: 1
+Valid from: Tue Nov 27 11:21:33 CET 2018 until: Mon Nov 27 11:21:33 CET 2028
 Certificate fingerprints:
-	 SHA1: B4:F5:09:33:B8:56:F0:D5:65:E9:3E:3D:02:1B:9D:00:F8:F8:F4:BA
-	 SHA256: BD:60:1C:19:D4:ED:87:18:B3:EC:F6:53:52:91:00:C8:A2:70:21:0F:04:87:E6:B7:ED:15:23:A7:97:D8:28:AC
+	 SHA1: 95:B3:01:BD:8B:97:46:D3:17:C4:E6:96:42:C9:84:FC:17:8D:E9:6F
+	 SHA256: 21:EB:CA:86:4A:08:E9:A2:D2:1F:6E:84:37:8D:60:BB:14:92:4D:1B:B0:DD:B0:DC:75:03:0C:2E:F3:B2:6E:DD
 Signature algorithm name: SHA512withRSA
-Subject Public Key Algorithm: 1024-bit RSA key (weak)
+Subject Public Key Algorithm: 2048-bit RSA key
 ```
 provided by the docker image only for testing purpose).
 
