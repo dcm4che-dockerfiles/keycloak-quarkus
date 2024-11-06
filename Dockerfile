@@ -1,7 +1,7 @@
 FROM amazoncorretto:21.0.5-al2023
 
 RUN set -eux \
-    && yum install -y hostname shadow-utils nmap-ncat tar gzip unzip \
+    && yum install -y findutils hostname shadow-utils nmap-ncat tar gzip unzip \
     && yum clean all \
     && groupadd -r keycloak --gid=1029 \
     && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak

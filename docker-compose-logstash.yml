@@ -56,6 +56,7 @@ services:
     image: dcm4che/keycloak:25.0.5
     ports:
       - "8843:8843"
+      - "8788:8788"
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: changeit
@@ -68,6 +69,8 @@ services:
       KIBANA_CLIENT_SECRET: changeit
       KIBANA_REDIRECT_URL: https://gunter-nb:8643/oauth2/callback/*
       KEYCLOAK_WAIT_FOR: ldap:389 logstash:8514
+      DEBUG: 'true'
+      DEBUG_PORT: '*:8788'
     depends_on:
       - ldap
       - logstash
