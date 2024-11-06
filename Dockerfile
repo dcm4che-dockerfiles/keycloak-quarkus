@@ -1,13 +1,10 @@
-FROM eclipse-temurin:21.0.4_7-jdk
+FROM amazoncorretto:21.0.5-al2023
 
-# explicitly set user/group IDs
-RUN groupadd -r keycloak --gid=1029 && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
-
-RUN arch="$(dpkg --print-architecture)" \
-    && set -x \
-    && apt-get update \
-    && apt-get install -y gnupg netcat-openbsd unzip \
-    && rm -rf /var/lib/apt/lists/*
+RUN set -eux \
+    && yum install -y hostname shadow-utils nmap-ncat tar gzip unzip \
+    && yum clean all \
+    && groupadd -r keycloak --gid=1029 \
+    && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
 
 ENV KEYCLOAK_VERSION=25.0.5 \
     DCM4CHE_VERSION=5.33.1
@@ -16,14 +13,14 @@ RUN cd $HOME \
     && curl -L https://github.com/keycloak/keycloak/releases/download/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar xz \
     && mv keycloak-$KEYCLOAK_VERSION /opt/keycloak \
     && cd /opt/keycloak/providers \
-    && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-audit/$DCM4CHE_VERSION/dcm4che-audit-$DCM4CHE_VERSION.jar \
-    && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-audit-keycloak/$DCM4CHE_VERSION/dcm4che-audit-keycloak-$DCM4CHE_VERSION.jar \
-    && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-conf-api/$DCM4CHE_VERSION/dcm4che-conf-api-$DCM4CHE_VERSION.jar \
-    && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-conf-ldap/$DCM4CHE_VERSION/dcm4che-conf-ldap-$DCM4CHE_VERSION.jar \
-    && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-conf-ldap-audit/$DCM4CHE_VERSION/dcm4che-conf-ldap-audit-$DCM4CHE_VERSION.jar \
-    && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-core/$DCM4CHE_VERSION/dcm4che-core-$DCM4CHE_VERSION.jar \
-    && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-net/$DCM4CHE_VERSION/dcm4che-net-$DCM4CHE_VERSION.jar \
-    && curl -O https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-net-audit/$DCM4CHE_VERSION/dcm4che-net-audit-$DCM4CHE_VERSION.jar \
+    && curl -fO https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-audit/$DCM4CHE_VERSION/dcm4che-audit-$DCM4CHE_VERSION.jar \
+    && curl -fO https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-audit-keycloak/$DCM4CHE_VERSION/dcm4che-audit-keycloak-$DCM4CHE_VERSION.jar \
+    && curl -fO https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-conf-api/$DCM4CHE_VERSION/dcm4che-conf-api-$DCM4CHE_VERSION.jar \
+    && curl -fO https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-conf-ldap/$DCM4CHE_VERSION/dcm4che-conf-ldap-$DCM4CHE_VERSION.jar \
+    && curl -fO https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-conf-ldap-audit/$DCM4CHE_VERSION/dcm4che-conf-ldap-audit-$DCM4CHE_VERSION.jar \
+    && curl -fO https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-core/$DCM4CHE_VERSION/dcm4che-core-$DCM4CHE_VERSION.jar \
+    && curl -fO https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-net/$DCM4CHE_VERSION/dcm4che-net-$DCM4CHE_VERSION.jar \
+    && curl -fO https://www.dcm4che.org/maven2/org/dcm4che/dcm4che-net-audit/$DCM4CHE_VERSION/dcm4che-net-audit-$DCM4CHE_VERSION.jar \
     && chown -R keycloak:keycloak /opt/keycloak \
     && mkdir /docker-entrypoint.d && mv /opt/keycloak/lib/quarkus /docker-entrypoint.d/quarkus
 
