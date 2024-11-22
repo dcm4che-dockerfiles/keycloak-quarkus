@@ -141,23 +141,23 @@ with _Event Type Code_: `(110127,DCM,"Emergency Override Started")`/`(110138,DCM
 Optional, default is `root`.
 
 ### Setup of the initial admin user
-#### `KEYCLOAK_ADMIN`
+#### `KC_BOOTSTRAP_ADMIN_USERNAME`
 
 By default there is no admin user created so you won't be able to login to the admin console of the Keycloak master
 realm at `https://${KC_HOSTNAME}:${KC_HTTPS_PORT}[/${KC_HTTP_RELATIVE_PATH}]`. To create an admin account you may use
-environment variables `KEYCLOAK_ADMIN` and `KEYCLOAK_ADMIN_PASSWORD` to pass in an initial username and password.
+environment variables `KC_BOOTSTRAP_ADMIN_USERNAME` and `KC_BOOTSTRAP_ADMIN_PASSWORD` to pass in an initial username and password.
 Once the first user with administrative rights exists, you may use the UI to change the initial password,
 create additional admin users and/or delete that initial admin user.
 
-#### `KEYCLOAK_ADMIN_FILE`
+#### `KC_BOOTSTRAP_ADMIN_USERNAME_FILE`
 
 Keycloak admin user via file input (alternative to KEYCLOAK_USER).
 
-#### `KEYCLOAK_ADMIN_PASSWORD`
+#### `KC_BOOTSTRAP_ADMIN_PASSWORD`
 
 User's password to use to authenticate to the Keycloak master realm.
 
-#### `KEYCLOAK_ADMIN_PASSWORD_FILE`
+#### `KC_BOOTSTRAP_ADMIN_PASSWORD_FILE`
 
 User's password to use to authenticate to the Keycloak master realm via file input (alternative to KEYCLOAK_PASSWORD).
 

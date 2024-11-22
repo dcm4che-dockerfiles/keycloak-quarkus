@@ -6,7 +6,7 @@ RUN set -eux \
     && groupadd -r keycloak --gid=1029 \
     && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
 
-ENV KEYCLOAK_VERSION=25.0.6 \
+ENV KEYCLOAK_VERSION=26.0.6 \
     DCM4CHE_VERSION=5.33.1
 
 RUN cd $HOME \

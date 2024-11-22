@@ -53,13 +53,13 @@ services:
       - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
       - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
   keycloak:
-    image: dcm4che/keycloak:25.0.6
+    image: dcm4che/keycloak:26.0.6
     ports:
       - "8843:8843"
       - "8788:8788"
     environment:
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: changeit
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: changeit
       KC_HOSTNAME: https://gunter-nb:8843
       KC_HOSTNAME_BACKCHANNEL_DYNAMIC: 'true'
       KC_HTTPS_PORT: 8843

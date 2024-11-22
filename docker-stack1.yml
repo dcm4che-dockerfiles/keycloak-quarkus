@@ -51,7 +51,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /var/local/dcm4chee-arc/mysql:/var/lib/mysql
   keycloak:
-    image: dcm4che/keycloak:25.0.6
+    image: dcm4che/keycloak:26.0.6
     deploy:
       endpoint_mode: dnsrr
       placement:
@@ -67,8 +67,8 @@ services:
         protocol: tcp
         mode: host
     environment:
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: changeit
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: changeit
       KC_HTTPS_PORT: 8843
       KC_HOSTNAME: node1
       KC_DB: mariadb
