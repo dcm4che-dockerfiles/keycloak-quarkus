@@ -14,7 +14,7 @@ if [ "$1" = 'kc.sh' ]; then
              /docker-entrypoint.d/quarkus/build-system.properties; then
       cp -av /docker-entrypoint.d/quarkus /opt/keycloak/lib
     fi
-    if [ ! -f /opt/keycloak/themes/keycloak/login/theme.properties ]; then
+    if [ ! -f /opt/keycloak/themes/j4care/login/theme.properties ]; then
       cp -av /docker-entrypoint.d/themes /opt/keycloak/
     fi
     if [ ! -f $JAVA_HOME/lib/security/cacerts.done ]; then

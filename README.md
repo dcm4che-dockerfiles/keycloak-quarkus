@@ -23,6 +23,16 @@ then ensure that the same values are also used for overriding the defaults durin
 
 Realm name (default is `dcm4che`).
 
+#### `LOGIN_THEME`
+
+Login theme
+- `base`
+- `j4care`
+- `keycloak`
+- `keycloak.v2`
+
+(default is `j4care`).
+
 #### `SSL_REQUIRED`
 
 Defining the SSL/HTTPS requirements for interacting with the realm:
@@ -151,7 +161,7 @@ create additional admin users and/or delete that initial admin user.
 
 #### `KC_BOOTSTRAP_ADMIN_USERNAME_FILE`
 
-Keycloak admin user via file input (alternative to KEYCLOAK_USER).
+Keycloak admin user via file input (alternative to KC_BOOTSTRAP_ADMIN_USERNAME).
 
 #### `KC_BOOTSTRAP_ADMIN_PASSWORD`
 
@@ -159,7 +169,7 @@ User's password to use to authenticate to the Keycloak master realm.
 
 #### `KC_BOOTSTRAP_ADMIN_PASSWORD_FILE`
 
-User's password to use to authenticate to the Keycloak master realm via file input (alternative to KEYCLOAK_PASSWORD).
+User's password to use to authenticate to the Keycloak master realm via file input (alternative to KC_BOOTSTRAP_ADMIN_PASSWORD).
 
 ### Configuring the external hostname and context path
 #### `KC_HOSTNAME`
