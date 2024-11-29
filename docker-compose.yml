@@ -17,14 +17,14 @@ services:
     environment:
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: changeit
-      KC_HOSTNAME: https://shefki-lifebook:8843
+      KC_HOSTNAME: https://gunter-nb:8843
       KC_HOSTNAME_BACKCHANNEL_DYNAMIC: 'true'
       KC_HTTPS_PORT: 8843
       KC_LOG: file
       ARCHIVE_HOST: gunter-nb
       KIBANA_CLIENT_ID: kibana
       KIBANA_CLIENT_SECRET: changeit
-      KIBANA_REDIRECT_URL: https://shefki-lifebook:8643/oauth2/callback/*
+      KIBANA_REDIRECT_URL: https://gunter-nb:8643/oauth2/callback/*
       KEYCLOAK_WAIT_FOR: ldap:389
       DEBUG: 'true'
       DEBUG_PORT: '*:8788'

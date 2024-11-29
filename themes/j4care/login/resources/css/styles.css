@@ -1,95 +1,32 @@
+.pf-v5-c-login__container {
+    grid-template-columns: 34rem;
+    grid-template-areas: "header"
+                         "main"
+}
+
 .login-pf body {
     background: url("../img/j4care-bg.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
 }
 
-.alert-error {
-    background-color: #ffffff;
-    border-color: #cc0000;
-    color: #333333;
-}
-
-#kc-locale ul {
-    display: none;
+#kc-header::before{
+    content: "";
+    display: block;
+    background-image: url(../img/j4care-logo.png);
+    background-repeat: no-repeat;
+    height: 42px;
+    width: 148px;
+    margin: 0 auto;
     position: absolute;
-    background-color: #fff;
-    list-style: none;
-    right: 0;
-    top: 20px;
-    min-width: 100px;
-    padding: 2px 0;
-    border: solid 1px #bbb;
+    left: 40px;
+    top: 10px;
 }
-
-#kc-locale:hover ul {
-    display: block;
-    margin: 0;
-}
-
-#kc-locale ul li a {
-    display: block;
-    padding: 5px 14px;
-    color: #000 !important;
-    text-decoration: none;
-    line-height: 20px;
-}
-
-#kc-locale ul li a:hover {
-    color: #4d5258;
-    background-color: #d4edfa;
-}
-
-#kc-locale-dropdown a {
-    color: #4d5258;
-    background: 0 0;
-    padding: 0 15px 0 0;
-    font-weight: 300;
-}
-
-#kc-locale-dropdown a:hover {
-    text-decoration: none;
-}
-
-a#kc-current-locale-link {
-    display: block;
-    padding: 0 5px;
-}
-
-/* a#kc-current-locale-link:hover {
-    background-color: rgba(0,0,0,0.2);
-} */
-
-a#kc-current-locale-link::after {
-    content: "\2c5";
-    margin-left: 4px;
-}
-
-.login-pf .container {
-    padding-top: 40px;
-}
-
-.login-pf a:hover {
-    color: #0099d3;
-}
-
-#kc-logo {
-    width: 100%;
-}
-
-#kc-logo-wrapper {
-    background-image: url(../img/keycloak-logo-2.png);
-    background-repeat: no-repeat;
-    height: 63px;
-    width: 300px;
-    margin: 62px auto 0;
-}
-
 div.kc-logo-text {
-    background-image: url(../img/keycloak-logo-text.png);
+    background-image: url(../img/j4care-logo.png);
     background-repeat: no-repeat;
-    height: 63px;
-    width: 300px;
+    height: 42px;
+    width: 148px;
     margin: 0 auto;
 }
 
@@ -97,10 +34,53 @@ div.kc-logo-text span {
     display: none;
 }
 
-#kc-header {
-    color: #ededed;
-    overflow: visible;
-    white-space: nowrap;
+.kc-login-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.kc-login-tooltip .kc-tooltip-text{
+    top:-3px;
+    left:160%;
+    background-color: black;
+    visibility: hidden;
+    color: #fff;
+
+    min-width:130px;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow:0 1px 8px rgba(0,0,0,0.6);
+    padding: 5px;
+
+    position: absolute;
+    opacity:0;
+    transition:opacity 0.5s;
+}
+
+/* Show tooltip */
+.kc-login-tooltip:hover .kc-tooltip-text {
+    visibility: visible;
+    opacity:0.7;
+}
+
+/* Arrow for tooltip */
+.kc-login-tooltip .kc-tooltip-text::after {
+    content: " ";
+    position: absolute;
+    top: 15px;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+#kc-recovery-codes-list {
+    columns: 2;
+}
+
+#certificate_subjectDN {
+    overflow-wrap: break-word
 }
 
 #kc-header-wrapper {
@@ -108,412 +88,35 @@ div.kc-logo-text span {
     text-transform: uppercase;
     letter-spacing: 3px;
     line-height: 1.2em;
-    padding: 62px 10px 20px;
     white-space: normal;
-    color:rgba(0, 0, 0, 0.85);
     text-align: center;
-    font-family: sans-serif;
 }
 
-#kc-content {
-    width: 100%;
-}
-
-/* #kc-content-wrapper {
-    overflow-y: hidden;
-} */
-
-#kc-info {
-    padding-bottom: 200px;
-    margin-bottom: -200px;
-}
-
-#kc-info-wrapper {
-    font-size: 13px;
-}
-
-#kc-form-options span {
-    display: block;
-}
-
-#kc-form-options .checkbox {
-    margin-top: 0;
-    color: #72767b;
-}
-
-#kc-terms-text {
-    margin-bottom: 20px;
-}
-
-#kc-registration {
-    margin-bottom: 15px;
-}
-
-/* TOTP */
-
-ol#kc-totp-settings {
-    margin: 0;
-    padding-left: 20px;
-}
-
-ul#kc-totp-supported-apps {
-  margin-bottom: 10px;
-}
-
-#kc-totp-secret-qr-code {
-    max-width:150px;
-    max-height:150px;
-}
-
-#kc-totp-secret-key {
-    background-color: #fff;
-    color: #333333;
-    font-size: 16px;
-    padding: 10px 0;
-}
-
-/* OAuth */
-
-#kc-oauth h3 {
-    margin-top: 0;
-}
-
-#kc-oauth ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#kc-oauth ul li {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 12px;
-    padding: 10px 0;
-}
-
-#kc-oauth ul li:first-of-type {
-    border-top: 0;
-}
-
-#kc-oauth .kc-role {
-    display: inline-block;
-    width: 50%;
-}
-
-/* Code */
-#kc-code textarea {
-    width: 100%;
-    height: 8em;
-}
-
-/* Social */
-
-#kc-social-providers ul {
-    padding: 0;
-}
-
-#kc-social-providers li {
-    display: block;
-}
-
-#kc-social-providers li:first-of-type {
-    margin-top: 0;
-}
-
-.zocial,
-a.zocial  {
-    width: 100%;
-    font-weight: normal;
-    font-size: 14px;
-    text-shadow: none;
-    border: 0;
-    background: #f5f5f5;
-    color: #72767b;
-    border-radius: 0;
-    white-space: normal;
-}
-.zocial:before {
-  border-right: 0;
-  margin-right: 0;
-}
-.zocial span:before {
-    padding: 7px 10px;
-    font-size: 14px;
-}
-.zocial:hover {
-    background: #ededed !important;
-}
-
-.zocial.facebook,
-.zocial.github,
-.zocial.google,
-.zocial.microsoft,
-.zocial.stackoverflow,
-.zocial.linkedin,
-.zocial.twitter {
-    background-image: none;
-    border: 0;
-
-    box-shadow: none;
-    text-shadow: none;
-}
-
-/* Copy of zocial windows classes to be used for microsoft's social provider button */
-.zocial.microsoft:before{ content: "\f15d"; }
-.zocial.stackoverflow:before{ color: inherit; }
-
-
-@media (min-width: 768px) {
-    #kc-container-wrapper {
-        position: absolute;
-        width: 100%;
-    }
-
-    .login-pf .container {
-        padding-right: 80px;
-    }
-
-    #kc-locale {
-        position: relative;
-        text-align: right;
-        z-index: 9999;
-    }
-}
-
-@media (max-width: 767px) {
-
-    .login-pf body {
-      background: white;
-    }
-
-    #kc-header {
-        padding-left: 15px;
-        padding-right: 15px;
-        float: none;
-        text-align: left;
-    }
-
-    #kc-header-wrapper {
-      font-size: 16px;
-      font-weight: bold;
-      padding: 20px 60px 0 0;
-      color: #72767b;
-      letter-spacing: 0;
-    }
-
-    div.kc-logo-text {
-        margin: 0;
-        width: 150px;
-        height: 32px;
-        background-size: 100%;
-    }
-
-    #kc-form {
-        float: none;
-    }
-
-    #kc-info-wrapper {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        margin-top: 15px;
-        padding-top: 15px;
-        padding-left: 0px;
-        padding-right: 15px;
-    }
-
-    #kc-social-providers li {
-        display: block;
-        margin-right: 5px;
-    }
-
-    .login-pf .container {
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-
-    #kc-locale {
-        position: absolute;
-        width: 200px;
-        top: 20px;
-        right: 20px;
-        text-align: right;
-        z-index: 9999;
-    }
-
-    #kc-logo-wrapper {
-        background-size: 100px 21px;
-        height: 21px;
-        width: 100px;
-        margin: 20px 0 0 20px;
-    }
-
-}
-
-@media (min-height: 646px) {
-    #kc-container-wrapper {
-        bottom: 12%;
-    }
-}
-
-@media (max-height: 645px) {
-    #kc-container-wrapper {
-        padding-top: 50px;
-        top: 20%;
-    }
-}
-.card-pf form.form-actions .btn {
-    float: right;
-    margin-left: 10px;
-}
-
-#kc-form-buttons {
-  //margin-top: 40px;
-}
-
-.login-pf-page .login-pf-brand {
-  margin-top: 20px;
-  max-width: 360px;
-  width: 40%;
-}
-
-.card-pf {
-  background:rgba(255, 255, 255, 0.85);
-  margin: 0 auto;
-  padding: 0 20px;
-  max-width: 500px;
-  border-top: 0;
-  -webkit-box-shadow:3px 3px 7px 2px rgba(0, 0, 0, 0.48);
-  -moz-box-shadow:3px 3px 7px 2px rgba(0, 0, 0, 0.48);
-  box-shadow:3px 3px 7px 2px rgba(0, 0, 0, 0.48);
-  padding:30px;
-}
-
-/*tablet*/
-@media (max-width: 840px) {
-    .login-pf-page .card-pf{
-      max-width: none;
-      margin-left: 20px;
-      margin-right: 20px;
-      padding: 20px 20px 30px 20px;
-    }
-}
-@media (max-width: 767px) {
-    .login-pf-page .card-pf{
-      max-width: none;
-      margin-left: 0;
-      margin-right: 0;
-      padding-top: 0;
-    }
-    .card-pf.login-pf-accounts{
-      max-width: none;
-    }
-}
-
-.login-pf-page .login-pf-signup {
-  font-size: 15px;
-  color: #72767b;
-}
-#kc-content-wrapper .row {
-  margin-left: 0;
-  margin-right: 0;
+hr {
+    margin-top: var(--pf-v5-global--spacer--sm);
+    margin-bottom: var(--pf-v5-global--spacer--md);
 }
 
 @media (min-width: 768px) {
-  .login-pf-page .login-pf-social-section:first-of-type {
-    padding-right: 39px;
-    border-right: 1px solid #d1d1d1;
-    margin-right: -1px;
-  }
-  .login-pf-page .login-pf-social-section:last-of-type {
-    padding-left: 40px;
-  }
-  .login-pf-page .login-pf-social-section .login-pf-social-link:last-of-type {
-    margin-bottom: 0;
-  }
+    div.pf-v5-c-login__main-header {
+        grid-template-columns: 70% 30%;
+    }
 }
 
-.login-pf-page .login-pf-social-link {
-  margin-bottom: 25px;
-}
-.login-pf-page .login-pf-social-link a {
-  padding: 2px 0;
-}
-
-.login-pf-page.login-pf-page-accounts {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.login-pf-page .btn-primary, .login-pf-page .pf-c-button.pf-m-primary {
-    margin-top: 0;
-    background:rgba(6, 29, 47, 0.84);
-    background-image:rgba(6, 29, 47, 0.84);
-    border-color:rgba(6, 29, 47, 0.84);
-}
-.login-pf-page .btn-primary:hover,.login-pf-page .btn-primary:active,.login-pf-page .pf-c-button.pf-m-primary:hover,.login-pf-page .pf-c-button.pf-m-primary:active{
-    background:rgba(6, 29, 47, 0.90);
-    background-image:rgba(6, 29, 47, 0.90);
-}
-.login-pf-page{
-    background-image: url(../img/j4care-logo.png);
-    background-repeat: no-repeat;
-    background-position: 34px 4px;
-}
-#kc-form-login #kc-form-buttons #kc-login{
-    margin-top: 0;
-    background:rgba(6, 29, 47, 0.84);
-    border:none;
-    color:white;
-    width:100%;
-}
-#kc-form-login #kc-form-buttons #kc-login:hover, kc-form-login .form-group > div > button:hover{
-    background: rgb(5 23 37 / 84%);
-}
-#kc-form-login .form-group > div > button{
-    background:rgba(6, 29, 47, 0.84);
-    border:none;
-    color:white;
-}
-#kc-form-login .form-group > div > button:hover{
-    cursor:pointer;
-}
-#kc-form-login .form-group > div > button[aria-controls="password"]{
-    width: 25px;
-    background-image: url(../img/eye.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 20px;
-}
-#kc-form-login .form-group > div > input[type="password"] + button{
-    background-image: url(../img/eye_close.png);
-}
-
-#kc-form-login .form-group > input, #kc-form-login .form-group > div > input{
-    height: 32px;
-    border: 1px solid #e1e1e1;
-    border-bottom: 1px solid #7e7e7e;
-    padding-left:7px;
-    box-sizing: border-box;
-}
-#kc-form-login .form-group > label, #kc-form-login .form-group > input{
-    width:100%;
-    font-weight: 500;
-    font-family: sans-serif;
+.pf-v5-c-login__main{
+    background: rgba(255, 255, 255, 0.85);
     color:rgb(54, 54, 54);
-    font-size: 12px;
+}
+.pf-v5-c-login__main .pf-v5-c-button.pf-m-primary, .pf-v5-c-button.pf-m-control{
+    background-color: rgba(6, 29, 47, 0.84);
 }
 
-#kc-form-login .form-group > div{
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr auto;
+.pf-v5-c-login__main input{
+    background: white;
+    color: black;
 }
 
-#kc-page-title{
-    text-align: center;
-    font-weight: 100;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-size: 24px;
-    color: rgb(54, 54, 54);
-}
-#kc-form-login .form-group{
-        margin-bottom: 20px;
+
+#kc-header #kc-header-wrapper{
+    color:rgb(54, 54, 54) ;
 }
