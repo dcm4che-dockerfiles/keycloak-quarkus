@@ -107,6 +107,11 @@ hr {
     background: rgba(255, 255, 255, 0.85);
     color:rgb(54, 54, 54);
 }
+
+.pf-v5-c-login__main .fa-eye, .pf-v5-c-login__main .fa-eye-slash{
+    color:white;
+}
+
 .pf-v5-c-login__main .pf-v5-c-button.pf-m-primary, .pf-v5-c-button.pf-m-control{
     background-color: rgba(6, 29, 47, 0.84);
 }
