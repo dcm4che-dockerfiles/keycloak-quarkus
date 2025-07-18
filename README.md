@@ -76,18 +76,10 @@ of the archive (optional, default is `wildfly-console`).
 
 Redirect URL of Keycloak client for securing the Wildfly Management Console. Default value is `https://dcm4chee-arc:9993/console/*`.
 
-#### `ARCHIVE_HOST`
+#### `ARCHIVE_WEB_ORIGIN`
 
-Hostname of the archive device referred by OIDC Keycloak clients for securing the UI and RESTful services
-of the archive. Default value is `dcm4chee-arc`.
-
-#### `ARCHIVE_HTTP_PORT`
-
-HTTP port of the UI of the archive (optional, default is `8080`).
-
-#### `ARCHIVE_HTTPS_PORT`
-
-HTTPS port of the UI of the archive (optional, default is `8443`).
+Web Origin of the Archive UI, including scheme (https or http), hostname and - if the port differs from the default for
+the specified scheme - port. Default value is `https://dcm4chee-arc:8443`.
 
 #### `KIBANA_CLIENT_ID`
 
@@ -444,7 +436,6 @@ Manually override the transaction type (optional, default is `true`).
 Enable one or more log handlers by comma separated list of enumerated values:
 - `console` - console log handler (=default)
 - `file` - file log handler
-- `gelf` - GELF log handler
 
 (optional, default is `console`).
 
@@ -467,46 +458,6 @@ The maximum file size of the log file after which a rotation is executed (option
 #### `KC_LOG_FILE_ROTATION_MAX_BACKUP_INDEX`
 
 The maximum number of backups to keep (optional, default is `5`).
-
-#### `KC_LOG_GELF_HOST`
-
-Hostname of the Logstash or Graylog Host. By default UDP is used, prefix the host with 'tcp:' to switch to TCP. Example: 'tcp:logstash'". (optional, default is `logstash`).
-
-#### `KC_LOG_GELF_PORT`
-
-The port the Logstash or Graylog Host is called on (optional, default is `12201`).
-
-#### `KC_LOG_GELF_VERSION`
-
-The gelf version to be used (optional, default is `1.1`).
-
-#### `KC_LOG_GELF_FACILITY`
-
-The facility (name of the process) that sends the message (optional, default is `keycloak`).
-
-#### `KC_LOG_GELF_LEVEL`
-
-Log-Level threshold (optional, default is `INFO`).
-
-#### `KC_LOG_GELF_INCLUDE_STACK_TRACE`
-
-If set to true, occuring stack traces are included in the 'StackTrace' field in the gelf output (optional, default is `true`).
-
-#### `KC_LOG_GELF_TIMESTAMP_FORMAT`
-
-Set the format for the gelf timestamp field. Uses Java SimpleDateFormat pattern (optional, default is `yyyy-MM-dd HH:mm:ss,SSS`).
-
-#### `KC_LOG_GELF_MAX_MSG_SIZE`
-
-Maximum message size (in bytes). If the message size is exceeded, gelf will submit the message in multiple chunks (optional, default is `8192`).
-
-#### `KC_LOG_GELF_INCLUDE_LOG_MSG_PARAMS`
-
-Include message parameters from the log event. (optional, default is `true`).
-
-#### `KC_LOG_GELF_INCLUDE_LOCATION`
-
-Include source code location (optional, default is `true`).
 
 ### [Cluster JDBC_PING configuration](https://github.com/ivangfr/keycloak-clustered):
 

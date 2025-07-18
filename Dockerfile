@@ -40,9 +40,7 @@ ENV REALM_NAME=dcm4che \
     KIBANA_CLIENT_ID=kibana \
     KIBANA_REDIRECT_URL=https://kibana:8643/* \
     ELASTIC_CLIENT_ID=elastic \
-    ARCHIVE_HOST=dcm4chee-arc \
-    ARCHIVE_HTTP_PORT=8080 \
-    ARCHIVE_HTTPS_PORT=8443 \
+    ARCHIVE_WEB_ORIGIN=https://dcm4chee-arc:8443 \
     LDAP_URL=ldap://ldap:389 \
     LDAP_BASE_DN=dc=dcm4che,dc=org \
     SSL_REQUIRED=external \
@@ -54,7 +52,6 @@ ENV REALM_NAME=dcm4che \
     KC_SPI_TRUSTSTORE_FILE_FILE=$JAVA_HOME/lib/security/cacerts \
     KC_SPI_TRUSTSTORE_FILE_HOSTNAME_VERIFICATION_POLICY=ANY \
     EXTRA_CACERTS=/opt/keycloak/conf/keystores/cacerts.p12 \
-    KC_LOG_GELF_HOST=logstash \
     DEBUG_PORT=*:8787
 
 ENV PATH /opt/keycloak/bin:$PATH

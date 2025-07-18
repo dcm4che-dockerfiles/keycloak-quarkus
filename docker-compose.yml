@@ -21,7 +21,7 @@ services:
       KC_HOSTNAME_BACKCHANNEL_DYNAMIC: 'true'
       KC_HTTPS_PORT: 8843
       KC_LOG: file
-      ARCHIVE_HOST: gunter-nb
+      ARCHIVE_WEB_ORIGIN: https://gunter-nb:8443
       KIBANA_CLIENT_ID: kibana
       KIBANA_CLIENT_SECRET: changeit
       KIBANA_REDIRECT_URL: https://gunter-nb:8643/oauth2/callback/*

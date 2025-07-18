@@ -43,7 +43,7 @@ services:
       - "8843:8843"
       - "8787:8787"
     environment:
-      ARCHIVE_HOST: gunter-nb
+      ARCHIVE_WEB_ORIGIN: https://gunter-nb:8443
       LDAP_URL: ldaps://ldap:636
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: changeit

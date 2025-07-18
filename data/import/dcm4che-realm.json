@@ -319,18 +319,15 @@
     {
       "id": "b1ccc293-66e8-4a7b-af2e-22169d855b7e",
       "clientId": "${RS_CLIENT_ID}",
-      "rootUrl": "https://${ARCHIVE_HOST}:${ARCHIVE_HTTPS_PORT}/dcm4chee-arc",
-      "adminUrl": "https://${ARCHIVE_HOST}:${ARCHIVE_HTTPS_PORT}/dcm4chee-arc",
+      "rootUrl": "",
+      "adminUrl": "",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "secret": "${RS_CLIENT_SECRET}",
       "redirectUris": [],
-      "webOrigins": [
-        "http://${ARCHIVE_HOST}:${ARCHIVE_HTTP_PORT}",
-        "https://${ARCHIVE_HOST}:${ARCHIVE_HTTPS_PORT}"
-      ],
+      "webOrigins": [],
       "notBefore": 0,
       "bearerOnly": false,
       "consentRequired": false,
@@ -439,15 +436,14 @@
     {
       "id": "4786bb5a-ce27-446c-b1de-bedeb5924235",
       "clientId": "${UI_CLIENT_ID}",
-      "rootUrl": "https://${ARCHIVE_HOST}:${ARCHIVE_HTTPS_PORT}/dcm4chee-arc/ui2",
-      "adminUrl": "https://${ARCHIVE_HOST}:${ARCHIVE_HTTPS_PORT}/dcm4chee-arc/ui2",
+      "rootUrl": "${ARCHIVE_WEB_ORIGIN}/dcm4chee-arc/ui2",
+      "adminUrl": "${ARCHIVE_WEB_ORIGIN}/dcm4chee-arc/ui2",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "https://${ARCHIVE_HOST}:${ARCHIVE_HTTPS_PORT}/dcm4chee-arc/ui2/*",
-        "http://${ARCHIVE_HOST}:${ARCHIVE_HTTP_PORT}/dcm4chee-arc/ui2/*"
+        "${ARCHIVE_WEB_ORIGIN}/dcm4chee-arc/ui2/*"
       ],
       "webOrigins": [
         "+"
