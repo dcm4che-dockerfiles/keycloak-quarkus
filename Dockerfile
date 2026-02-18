@@ -1,4 +1,4 @@
-FROM amazoncorretto:21.0.5-al2023
+FROM amazoncorretto:21.0.10-al2023
 
 RUN set -eux \
     && yum install -y findutils hostname shadow-utils nmap-ncat tar gzip unzip \
@@ -7,7 +7,7 @@ RUN set -eux \
     && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
 
 ENV KEYCLOAK_VERSION=25.0.6 \
-    DCM4CHE_VERSION=5.34.0
+    DCM4CHE_VERSION=5.34.3
 
 RUN cd $HOME \
     && curl -L https://github.com/keycloak/keycloak/releases/download/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar xz \
