@@ -25,8 +25,12 @@ file_env() {
 file_env 'LDAP_ROOTPASS' 'secret'
 file_env 'KC_DB_USERNAME' 'keycloak'
 file_env 'KC_DB_PASSWORD' 'keycloak'
+# Keycloak 26+ compatibility
 file_env 'KC_BOOTSTRAP_ADMIN_USERNAME'
 file_env 'KC_BOOTSTRAP_ADMIN_PASSWORD'
+# Keycloak 25 compatibility
+export KEYCLOAK_ADMIN="${KC_BOOTSTRAP_ADMIN_USERNAME}"
+export KEYCLOAK_ADMIN_PASSWORD="${KC_BOOTSTRAP_ADMIN_PASSWORD}"
 file_env 'KC_HTTPS_KEY_STORE_PASSWORD' 'secret'
 file_env 'KC_HTTPS_TRUST_STORE_PASSWORD' 'changeit'
 file_env 'KC_SPI_TRUSTSTORE_FILE_PASSWORD' 'changeit'
