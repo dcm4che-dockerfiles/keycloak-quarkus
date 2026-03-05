@@ -29,7 +29,9 @@ COPY --chown=keycloak:keycloak conf /opt/keycloak/conf/
 COPY --chown=keycloak:keycloak data /docker-entrypoint.d/data/
 COPY --chown=keycloak:keycloak themes /docker-entrypoint.d/themes/
 
-ENV REALM_NAME=dcm4che \
+ENV KEYCLOAK_ADMIN=master \
+    KEYCLOAK_ADMIN_PASSWORD=changeit \
+    REALM_NAME=dcm4che \
     LOGIN_THEME=j4care \
     UI_CLIENT_ID=dcm4chee-arc-ui \
     RS_CLIENT_ID=dcm4chee-arc-rs \
