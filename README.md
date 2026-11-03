@@ -311,30 +311,19 @@ s. [Using a reverse proxy](https://www.keycloak.org/server/reverseproxy)
 If `true`, certificate checking will include the [default set of root CA certificates in the JDK](https://openjdk.java.net/jeps/319)
 additionally to CA certificates in `TRUSTSTORE` (optional, default is `false`).
 
-#### `KC_SPI_TRUSTSTORE_FILE_HOSTNAME_VERIFICATION_POLICY`
+#### `KC_TLS_HOSTNAME_VERIFIER`
 
-Specifies if Keycloak shall verify the hostname of the server’s certificate on outgoing HTTPS requests.
+Specifies if Keycloak shall verify the hostname of the server’s certificate on outgoing TLS connections (HTTPS, LDAPS).
 Accepted values are:
 - `ANY` - the hostname is not verified.
-- `WILDCARD` - allows wildcards in subdomain names i.e. `*.foo.com`.
+- `WILDCARD` - allows wildcards in subdomain names i.e. `*.foo.com` (deprecated in Keycloak, use `DEFAULT`).
 - `STRICT` - CN must match hostname exactly.
+- `DEFAULT` - wildcards allowed, verified as browsers do.
 
 Default value is `ANY`.
 
-#### `KC_SPI_TRUSTSTORE_FILE_FILE`
-
-Path to keystore file with trusted certificates for verifying server certificates on outgoing HTTPs requests
-(optional, default is the default Java truststore `$JAVA_HOME/lib/security/cacerts`).
-s.o. [EXTRA_CACERTS](#extra_cacerts).
-
-#### `KC_HTTPS_TRUST_STORE_PASSWORD`
-
-Password used to protect the integrity of the keystore specified by `KC_SPI_TRUSTSTORE_FILE_FILE` (optional, default is `changeit`).
-
-#### `KC_HTTPS_TRUST_STORE_PASSWORD_FILE`
-
-Password used to protect the integrity of the keystore specified by `KC_SPI_TRUSTSTORE_FILE_FILE` via file input
-(alternative to `KC_HTTPS_TRUST_STORE_PASSWORD`).
+Certificates of servers Keycloak connects to are verified against the default Java truststore
+`$JAVA_HOME/lib/security/cacerts`, s.o. [EXTRA_CACERTS](#extra_cacerts).
 
 
 ### JVM related Environment variables: 
