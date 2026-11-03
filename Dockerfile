@@ -1,5 +1,11 @@
 FROM amazoncorretto:21.0.13-al2023
 
+# Pull current OS security updates (latest Amazon Linux 2023 release); the upstream image is
+# only a point-in-time snapshot.
+RUN dnf -y upgrade --releasever=latest \
+ && dnf clean all \
+ && rm -rf /var/cache/dnf
+
 RUN set -eux \
     && yum install -y findutils hostname shadow-utils nmap-ncat tar gzip unzip \
     && yum clean all \
@@ -49,8 +55,8 @@ ENV REALM_NAME=dcm4che \
     KC_HTTPS_KEY_STORE_TYPE=PKCS12 \
     KC_HTTPS_TRUST_STORE_FILE=$JAVA_HOME/lib/security/cacerts \
     KC_HTTPS_TRUST_STORE_TYPE=JKS \
-    KC_SPI_TRUSTSTORE_FILE_FILE=$JAVA_HOME/lib/security/cacerts \
-    KC_SPI_TRUSTSTORE_FILE_HOSTNAME_VERIFICATION_POLICY=ANY \
+    KC_TLS_HOSTNAME_VERIFIER=ANY \
+    KC_LOG_FILE_ROTATION_MAX_BACKUP_INDEX=5 \
     EXTRA_CACERTS=/opt/keycloak/conf/keystores/cacerts.p12 \
     DEBUG_PORT=*:8787
 
