@@ -1,6 +1,6 @@
 services:
   elasticsearch:
-    image: elasticsearch:8.4.2
+    image: elasticsearch:8.19.23
     environment:
       ES_JAVA_OPTS: -Xms512m -Xmx512m
       http.cors.enabled: "true"
@@ -19,7 +19,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /var/local/dcm4chee-arc/esdatadir:/usr/share/elasticsearch/data
   kibana:
-    image: kibana:8.4.2
+    image: kibana:8.19.23
     ports:
       - "5601:5601"
     depends_on:
@@ -28,7 +28,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
   logstash:
-    image: dcm4che/logstash-dcm4chee:8.4.2-15
+    image: dcm4che/logstash-dcm4chee:8.19.23-21
     ports:
       - "12201:12201/udp"
       - "8514:8514/udp"
@@ -43,7 +43,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /var/local/dcm4chee-arc/logstash:/usr/share/logstash/data
   ldap:
-    image: dcm4che/slapd-dcm4chee:2.6.8-34.0
+    image: dcm4che/slapd-dcm4chee:2.6.15-35.2
     ports:
       - "389:389"
       - "636:636"
@@ -53,7 +53,7 @@ services:
       - /var/local/dcm4chee-arc/ldap:/var/lib/openldap/openldap-data
       - /var/local/dcm4chee-arc/slapd.d:/etc/openldap/slapd.d
   keycloak:
-    image: dcm4che/keycloak:25.0.6
+    image: dcm4che/keycloak:26.8.1
     ports:
       - "8843:8843"
       - "8788:8788"
