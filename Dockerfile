@@ -3,8 +3,8 @@ FROM amazoncorretto:21.0.13-al2023
 # Pull current OS security updates (latest Amazon Linux 2023 release); the upstream image is
 # only a point-in-time snapshot.
 RUN dnf -y upgrade --releasever=latest \
- && dnf clean all \
- && rm -rf /var/cache/dnf
+    && dnf clean all \
+    && rm -rf /var/cache/dnf
 
 RUN set -eux \
     && yum install -y findutils diffutils hostname shadow-utils nmap-ncat tar gzip unzip \
@@ -60,7 +60,7 @@ ENV REALM_NAME=dcm4che \
     EXTRA_CACERTS=/opt/keycloak/conf/keystores/cacerts.p12 \
     DEBUG_PORT=*:8787
 
-ENV PATH /opt/keycloak/bin:$PATH
+ENV PATH=/opt/keycloak/bin:$PATH
 
 VOLUME /opt/keycloak/data/
 VOLUME /opt/keycloak/lib/quarkus
