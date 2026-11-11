@@ -12,8 +12,8 @@ RUN set -eux \
     && groupadd -r keycloak --gid=1029 \
     && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
 
-ENV KEYCLOAK_VERSION=26.8.1 \
-    DCM4CHE_VERSION=5.35.2
+ENV KEYCLOAK_VERSION=26.8.2 \
+    DCM4CHE_VERSION=5.36.0
 
 RUN cd $HOME \
     && curl -L https://github.com/keycloak/keycloak/releases/download/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar xz \
