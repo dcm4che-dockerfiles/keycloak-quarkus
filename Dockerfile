@@ -7,7 +7,7 @@ RUN dnf -y upgrade --releasever=latest \
  && rm -rf /var/cache/dnf
 
 RUN set -eux \
-    && yum install -y findutils hostname shadow-utils nmap-ncat tar gzip unzip \
+    && yum install -y findutils diffutils hostname shadow-utils nmap-ncat tar gzip unzip \
     && yum clean all \
     && groupadd -r keycloak --gid=1029 \
     && useradd -r -g keycloak --uid=1029 -d /opt/keycloak keycloak
